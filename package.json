@@ -19,6 +19,8 @@
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
     "@apollo/client": "^3.0.0",
+    "@ng-icons/bootstrap-icons": "^29.5.1",
+    "@ng-icons/core": "^27.5.2",
     "@types/lodash": "^4.17.10",
     "bootstrap": "^5.3.3",
     "graphql": "^16",

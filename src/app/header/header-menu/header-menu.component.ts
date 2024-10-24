@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
 
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { bootstrapChevronDown } from '@ng-icons/bootstrap-icons';
+
 @Component({
   selector: 'app-header-menu',
   standalone: true,
-  imports: [],
+  imports: [NgIconComponent],
+  viewProviders: [provideIcons({ bootstrapChevronDown })],
   templateUrl: './header-menu.component.html',
   styleUrl: './header-menu.component.scss'
 })

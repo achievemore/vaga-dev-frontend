@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './header-title.component.scss'
 })
 export class HeaderTitleComponent {
-
+  title?: string = 'Bem vindo(a)';
+  subtitle?: string = 'Use esse formulário para fazer login';
 }

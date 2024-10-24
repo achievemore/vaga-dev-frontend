@@ -1,0 +1,64 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 100%;
+
+    // Small devices (landscape phones, 576px and up)
+    @media (min-width: 576px) {
+      width: 576px;
+    }
+
+    // Medium devices (tablets, 768px and up)
+    @media (min-width: 768px) {
+      width: 576px;
+    }
+
+    // Large devices (desktops, 992px and up)
+    @media (min-width: 992px) {
+      width: 768px;
+    }
+
+    // X-Large devices (large desktops, 1200px and up)
+    @media (min-width: 1200px) {
+      width: 768px;
+    }
+
+    // XX-Large devices (larger desktops, 1400px and up)
+    @media (min-width: 1400px) {
+      width: 768px;
+    }
+
+    article {
+      width: 378px;
+    }
+
+    .links {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 32px;
+
+      h3 {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--text-body);
+      }
+    }
+
+    .copyrights {
+      p {
+        font-size: 14px;
+        font-weight: 400;
+        text-align: center;
+        color: var(--text-body);
+      }
+    }
+  }
+}

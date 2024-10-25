@@ -3,6 +3,8 @@
   --blue-light: #596cff;
   --orange: #fd7e14;
   --gray-light: #e2e8f0;
+  --gray-dark: #8591a4;
+  --gray-darker: #8b8f92;
 
   --text-title: #172b4d;
   --text-body: #8392ab;
@@ -29,7 +31,6 @@ html {
 
 body {
   -webkit-font-smoothing: antialiased;
-  margin: 1rem;
   background: var(--background);
 }
 

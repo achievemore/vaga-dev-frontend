@@ -9,10 +9,15 @@ import { UserService } from '../../services/user.service';
 
 import { User } from '../../models/user';
 
+import { HeaderComponent } from './header/header.component';
+
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    HeaderComponent
+  ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })

@@ -1,25 +1,34 @@
-<!-- @if (!users) {
-  <p>ERRO</p>
-} @else {
-  <table class="users">
-    <thead>
-      <tr>
-        <th scope="col">Nome</th>
-        <th scope="col">Cargo</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        @for (user of users; track user.id) {
-          <td>{{ user.first_name }}</td>
-        } @empty {
-          <td>There are no items.</td>
-        }
-      </tr>
-    </tbody>
-  </table>
-}
-
-<button (click)="logout()">Logout</button> -->
-
 <app-pages-dashboard-header />
+
+<main>
+  <section>
+    <article>
+      <h1>Listagem de usuários</h1>
+      <h5>Visualização dos usuários cadastrados.</h5>
+    </article>
+
+    <hr>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Sobrenome</th>
+          <th>Email</th>
+          <th>Avatar</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.first_name }}</td>
+          <td>{{ user.last_name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.avatar }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>

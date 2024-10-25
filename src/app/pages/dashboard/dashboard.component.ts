@@ -31,7 +31,7 @@ export class DashboardComponent {
     private userService: UserService,
   ) {}
 
-  ngAfterContentInit() {
+  ngOnInit() {
     this.listUsers();
   }
 

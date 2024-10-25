@@ -5,7 +5,7 @@ import { HeaderMenuComponent } from './header-menu/header-menu.component';
 import { HeaderTitleComponent } from './header-title/header-title.component';
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-pages-login-header',
   standalone: true,
   imports: [
     CommonModule,

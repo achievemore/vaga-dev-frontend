@@ -1,3 +1,5 @@
+<app-pages-login-header />
+
 <main>
   <section>
     <article class="card">
@@ -7,10 +9,11 @@
       </article>
 
       <article class="form">
-        <form (ngSubmit)="onSubmit()">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
           <article>
             <label for="email">E-mail</label>
             <input
+              formControlName="email"
               type="email"
               id="email"
               name="email"
@@ -21,6 +24,7 @@
           <article>
             <label for="password">Senha</label>
             <input
+              formControlName="password"
               type="password"
               id="password"
               name="password"
@@ -54,3 +58,5 @@
     </article>
   </section>
 </main>
+
+<app-pages-login-footer />

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-header-title',
+  selector: 'app-pages-login-header-title',
   standalone: true,
   imports: [],
   templateUrl: './header-title.component.html',

@@ -32,17 +32,13 @@ export class LoginComponent {
   title?: string = 'Área restrita';
   subtitle?: string = 'Digite seu e-mail e senha para entrar';
 
-  onSubmit(){
-    if(this.loginForm.valid) {
-      console.log(this.loginForm.value);
-
+  onSubmit() {
+    if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value)
-      .subscribe((data: any) => {
+      .subscribe((data: Object) => {
         if (this.authService.isLoggedIn()) {
           this.router.navigate(['/dashboard']);
         }
-
-        console.log(data);
       });
     }
   }

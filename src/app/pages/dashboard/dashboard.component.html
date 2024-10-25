@@ -1,1 +1,23 @@
+@if (!users) {
+  <p>ERRO</p>
+} @else {
+  <table class="users">
+    <thead>
+      <!-- <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Cargo</th>
+      </tr> -->
+    </thead>
+    <tbody>
+      <tr>
+        @for (user of users; track user.id) {
+          <td>{{ user.first_name }}</td>
+        } @empty {
+          <td>There are no items.</td>
+        }
+      </tr>
+    </tbody>
+  </table>
+}
+
 <button (click)="logout()">Logout</button>

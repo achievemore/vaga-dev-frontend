@@ -8,7 +8,7 @@ import { tap } from 'rxjs/operators';
 })
 export class AuthService {
   HttpClient = inject(HttpClient);
-  baseUrl = 'http://localhost:3000/api';
+  baseUrl = 'https://reqres.in/api';
 
   constructor() {}
 
@@ -17,6 +17,10 @@ export class AuthService {
     .pipe(tap((result) => {
       localStorage.setItem('authUser', JSON.stringify(result));
     }));
+  }
+
+  logout() {
+    localStorage.removeItem('authUser');
   }
 
   isLoggedIn() {

@@ -7,7 +7,7 @@
     align-items: center;
     list-style-type: none;
     width: 100%;
-    margin: 1rem;
+    margin: 16px;
 
     article {
       display: flex;
@@ -17,7 +17,7 @@
       &:first-child {
         li {
           a {
-            font-size: 0.875rem;
+            font-size: 14px;
             font-weight: 700;
             text-align: left;
             color: #fff;
@@ -29,11 +29,11 @@
         li {
           &:nth-child(1),
           &:nth-child(2) {
-            margin-right: 2rem;
+            margin-right: 32px;
           }
 
           a {
-            font-size: 0.875rem;
+            font-size: 14px;
             font-weight: 400;
             text-align: left;
             color: #fff;

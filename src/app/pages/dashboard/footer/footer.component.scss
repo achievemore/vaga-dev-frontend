@@ -1,0 +1,40 @@
+footer {
+  position: relative;
+  float: right;
+  top: 174px;
+  width: 82%;
+
+  section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 16px;
+    // height: 100%;
+
+    .copyrights {
+      p {
+        font-size: 14px;
+        font-weight: 400;
+        text-align: center;
+        color: var(--text-body);
+      }
+    }
+
+    .links {
+      display: flex;
+      justify-content: space-between;
+
+      a {
+        h3 {
+          font-size: 14px;
+          font-weight: 400;
+          color: var(--text-body);
+
+          &:nth-child(1) {
+            margin-right: 28px;
+          }
+        }
+      }
+    }
+  }
+}

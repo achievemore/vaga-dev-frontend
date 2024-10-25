@@ -1,11 +1,125 @@
 :host {
   width: 82%;
 
-  // .sidebar {
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: start;
-  // align-items: center;
-  // height: 100%;
-  // }
+  .main {
+    margin: 1rem;
+    nav {
+      ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // width: 100%;
+        margin: 0 24px;
+        list-style-type: none;
+
+        article {
+          &:first-child {
+            display: flex;
+            justify-content: space-between;
+
+            div {
+              &:first-child {
+                margin-right: 32px;
+              }
+
+              &:last-child {
+                ng-icon {
+                  position: relative;
+                  top: 8px;
+                }
+
+                .bootstrap-textcenter {
+                  color: #fff;
+                }
+              }
+
+              a {
+                li {
+                  font-size: 14px;
+                  text-align: left;
+                  color: #fff;
+                }
+
+                &:first-child {
+                  font-weight: 400;
+                  opacity: 50%;
+                }
+
+                &:last-child {
+                  font-weight: 700;
+                }
+              }
+            }
+          }
+
+          &:last-child {
+            display: flex;
+            justify-content: space-between;
+
+            div {
+              &:nth-child(1) {
+                input {
+                  width: 240px;
+                  margin-right: 24px;
+                  padding: 12px 20px 12px 40px;
+                  border: none;
+                  border-radius: 12px;
+                  font-size: 14px;
+                  font-weight: 400;
+                  text-align: left;
+                  box-sizing: border-box;
+                  outline: none;
+                  background-image: url("../../../../../assets/icons/icon-search.png");
+                  background-position: 14px 14px;
+                  background-repeat: no-repeat;
+                  background-color: #fff;
+                }
+              }
+
+              &:nth-child(2) {
+                display: flex;
+                align-items: center;
+
+                div {
+                  &:first-child {
+                    ng-icon {
+                      position: relative;
+                      top: 4px;
+                      margin-right: 8px;
+                      color: #fff;
+                    }
+                  }
+
+                  &:last-child {
+                    li {
+                      position: relative;
+                      top: 1px;
+                      margin-right: 24px;
+                      font-size: 14px;
+                      font-weight: 400;
+                      text-align: left;
+                      color: #fff;
+                    }
+                  }
+                }
+              }
+
+              &:nth-child(3) {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                ng-icon {
+                  position: relative;
+                  top: 1px;
+                  margin-right: 24px;
+                  color: #fff;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

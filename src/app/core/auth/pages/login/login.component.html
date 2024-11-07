@@ -1,0 +1,62 @@
+<section class="container flex">
+    <img class="banner-img" src="../../../../../assets/images/Mask group.svg" />
+
+    <div class="position-container flex">
+        <div class="header flex">
+            <p>Vaga Front-end AchieveMore</p>
+            <div class="menu">
+                <p>Institucional</p>
+                <p>Produtos</p>
+                <p>Contato</p>
+            </div>
+        </div>
+
+        <div class="title-container flex">
+            <h1>Bem vindo(a)</h1>
+            <p>Use esse formulário para fazer login</p>
+        </div>
+        <section class="flex card">
+            <h2>Área restrita</h2>
+            <p>Digite seu e-mail e senha para entrar</p>
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="flex">
+
+                <div class="flex email-container">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" formControlName="email" placeholder="Digite seu email">
+                    <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error">
+                        <small *ngIf="loginForm.get('email')?.errors?.['required']">O email é obrigatório.</small>
+                        <small *ngIf="loginForm.get('email')?.errors?.['email']">Digite um email válido.</small>
+                    </div>
+                </div>
+
+                <div class="flex password-container">
+
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" formControlName="password" placeholder="Digite sua senha">
+                    <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error">
+                        <small *ngIf="loginForm.get('password')?.errors?.['required']">A senha é obrigatória.</small>
+                        <small *ngIf="loginForm.get('password')?.errors?.['minlength']">A senha deve ter pelo menos 6
+                            caracteres.</small>
+                    </div>
+                </div>
+
+                <div class="forget-container flex">
+                    <p>esqueceu a senha</p>
+                </div>
+
+                <button type="submit" [disabled]="loginForm.invalid">Entrar</button>
+            </form>
+        </section>
+
+        
+
+    </div>
+    <section class="footer">
+        <div class="politics">
+            <p>Política de Privacidade</p>
+            <p>Política de Segurança</p>
+        </div>
+        <p>© 2024 AchieveMore - Todos os direitos reservados.</p>
+    </section>
+</section>

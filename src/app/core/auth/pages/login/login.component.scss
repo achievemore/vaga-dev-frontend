@@ -20,16 +20,40 @@
         flex-direction: row;
         justify-content: space-between;
         width: 60%;
+        color: #FFFFFF;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 21px;
+        text-align: left;
+
         .menu{
             display: flex;
             p{
                 margin-right: 8px;
+                font-weight: 400;
             }
         }
     }
 
     .title-container{
         margin-bottom: 120px;
+        color: #FFFFFF;
+        text-align: center;
+        h1{
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 60px;
+            letter-spacing: -0.8px;
+        }
+
+        p{
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            
+        }
+
+
     }
    
 
@@ -46,20 +70,45 @@
         border-radius: 15px;
         background-color: #FFFFFF;
         align-items: start !important;
+        h3{
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 41.1px;
+            letter-spacing: -0.8px;
+            text-align: left;
+            color: #172B4D;
+        }
+        p{
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 19.88px;
+            text-align: left;
+            color: #8392AB;
+        }
         form{
             input{
                 width: 350px;
                 height: 50px;
                 border: 1px solid #E2E8F0;
-                border-radius: 8px
+                border-radius: 8px;
+                padding: 4px
+
             };
+
+            input::placeholder {
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 24px;
+                text-align: left;
+                color:#A0AEC0;
+                padding-left: 20px;
+              }
             button{
                 width: 350px;
                 height: 41px;
                 background-color: #5E72E4;
                 color: #FFFFFF;
                 border-radius: 8px;
-                font-family: Open Sans;
                 font-size: 14px;
                 font-weight: 700;
                 line-height: 21px;
@@ -72,22 +121,34 @@
                 margin-bottom: 24px;
                 margin-top: 24px;
                 align-items: start;
-                label{
-                    margin-bottom: 8px;
-                }
+         
+            }
+            label{
+                margin-bottom: 8px;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 19.07px;
+                text-align: left;
+                color: #172B4D;
             }
 
             .password-container{
                 margin-bottom: 24px;
                 align-items: start;
-                label{
-                    margin-bottom: 8px;
-                }
             }
 
             .forget-container{
                 align-items: start !important; 
                 width: 100%;
+                p{
+
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 24px;
+                    text-align: left;
+                    color: #172B4D;
+
+                }
             }
         }
     }
@@ -102,6 +163,19 @@
         .politics{
             display: flex;
             justify-content: space-between;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            text-align: left;
+            color: #8392AB;
+        }
+
+        .rights{
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 21px;
+            text-align: left;
+            color: #8392AB;
         }
     }
 }

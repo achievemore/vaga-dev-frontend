@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ReqresService } from '../../../../shared/reqres.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from '../../../../shared/services/auth.service';
+
 
 
 @Component({
@@ -15,7 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
 export class LoginComponent {
   loginForm: FormGroup;
   
-  constructor(private fb: FormBuilder, private reqResService: ReqresService) {
+  constructor(private fb: FormBuilder,
+     private authService: AuthService,
+    ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
@@ -24,12 +27,13 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      console.log('Formulário Enviado:', this.loginForm.value);
       const body = {
          "email": this.loginForm?.get('email')?.value,
          "password": this.loginForm?.get('password')?.value
       }
-      this.reqResService.postLogin(body).subscribe((res) => console.log('sucesso', res));
+      localStorage.setItem('email', this.loginForm?.get('email')?.value);
+      this.authService.login(body);
+
     } else {
       console.log('Formulário Inválido');
     }

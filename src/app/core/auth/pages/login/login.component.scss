@@ -1,181 +1,258 @@
-.flex{
+.flex {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.container{
+.container {
     background-color: #F5F7F8;
-    height: 100vh;
+    height: 1080px;
 
-    .position-container{
+    .position-container {
         z-index: 120;
-        top: 24px;
+        padding-top: 24px;
         position: absolute;
         width: 100%;
-    }
+        flex-direction: column;
+        height: 1080px;
 
-    .header{
-        margin-bottom: 60px;
-        flex-direction: row;
-        justify-content: space-between;
-        width: 60%;
-        color: #FFFFFF;
-        font-size: 14px;
-        font-weight: 700;
-        line-height: 21px;
-        text-align: left;
+        .header {
+            margin-bottom: 60px;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 60%;
+            color: #FFFFFF;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 21px;
+            text-align: left;
 
-        .menu{
-            display: flex;
-            p{
-                margin-right: 8px;
-                font-weight: 400;
+            .menu {
+                display: flex;
+
+                p {
+                    margin-right: 29px;
+                    font-weight: 400;
+                }
             }
         }
-    }
-
-    .title-container{
-        margin-bottom: 120px;
-        color: #FFFFFF;
-        text-align: center;
-        h1{
-            font-size: 48px;
-            font-weight: 700;
-            line-height: 60px;
-            letter-spacing: -0.8px;
-        }
-
-        p{
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 24px;
-            
-        }
 
 
-    }
-   
 
 
-    .banner-img{
-        margin-top: 16px;
-    }
+        .title-container {
+            margin-bottom: 120px;
+            color: #FFFFFF;
+            text-align: center;
 
-    .card{
-        width: 446px;
-        height: 480px;
-        padding: 48px;
-        gap: 8px;
-        border-radius: 15px;
-        background-color: #FFFFFF;
-        align-items: start !important;
-        h3{
-            font-size: 30px;
-            font-weight: 700;
-            line-height: 41.1px;
-            letter-spacing: -0.8px;
-            text-align: left;
-            color: #172B4D;
-        }
-        p{
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 19.88px;
-            text-align: left;
-            color: #8392AB;
-        }
-        form{
-            input{
-                width: 350px;
-                height: 50px;
-                border: 1px solid #E2E8F0;
-                border-radius: 8px;
-                padding: 4px
+            h1 {
+                font-size: 48px;
+                font-weight: 700;
+                line-height: 60px;
+                letter-spacing: -0.8px;
+            }
 
-            };
-
-            input::placeholder {
+            p {
                 font-size: 16px;
                 font-weight: 400;
                 line-height: 24px;
-                text-align: left;
-                color:#A0AEC0;
-                padding-left: 20px;
-              }
-            button{
-                width: 350px;
-                height: 41px;
-                background-color: #5E72E4;
-                color: #FFFFFF;
-                border-radius: 8px;
-                font-size: 14px;
+
+            }
+
+
+        }
+
+
+
+        .banner-img {
+            margin-top: 16px;
+        }
+
+        .card {
+            width: 446px;
+            height: 480px;
+            padding: 48px;
+            gap: 8px;
+            border-radius: 15px;
+            background-color: #FFFFFF;
+            align-items: start !important;
+
+            h3 {
+                font-size: 30px;
                 font-weight: 700;
-                line-height: 21px;
-                box-shadow: 0px 0px 6px 0px #000000;
-                margin-top: 24px;
-
-            }
-
-            .email-container{
-                margin-bottom: 24px;
-                margin-top: 24px;
-                align-items: start;
-         
-            }
-            label{
-                margin-bottom: 8px;
-                font-size: 14px;
-                font-weight: 400;
-                line-height: 19.07px;
+                line-height: 41.1px;
+                letter-spacing: -0.8px;
                 text-align: left;
                 color: #172B4D;
             }
 
-            .password-container{
-                margin-bottom: 24px;
-                align-items: start;
+            p {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 19.88px;
+                text-align: left;
+                color: #8392AB;
             }
 
-            .forget-container{
-                align-items: start !important; 
-                width: 100%;
-                p{
+            form {
+                input {
+                    width: 350px;
+                    height: 50px;
+                    border: 1px solid #E2E8F0;
+                    border-radius: 8px;
+                    padding: 10px 10px 10px 20px;
 
+                }
+
+                ;
+
+                input::placeholder {
                     font-size: 16px;
                     font-weight: 400;
                     line-height: 24px;
                     text-align: left;
-                    color: #172B4D;
+                    color: #A0AEC0;
+                }
 
+                button {
+                    width: 350px;
+                    height: 41px;
+                    background-color: #5E72E4;
+                    color: #FFFFFF;
+                    border-radius: 8px;
+                    font-size: 14px;
+                    font-weight: 700;
+                    line-height: 21px;
+                    box-shadow: 0px 0px 6px 0px #000000;
+                    margin-top: 24px;
+
+                }
+
+                .email-container {
+                    margin-bottom: 24px;
+                    margin-top: 24px;
+                    align-items: start;
+
+                }
+
+                label {
+                    margin-bottom: 8px;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 19.07px;
+                    text-align: left;
+                    color: #172B4D;
+                }
+
+                .password-container {
+                    margin-bottom: 24px;
+                    align-items: start;
+                }
+
+                .forget-container {
+                    align-items: center !important;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    p {
+
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 24px;
+                        text-align: left;
+                        color: #172B4D;
+
+                    }
+
+                    .switch {
+                        position: relative;
+                        display: inline-block;
+                        width: 36px;
+                        height: 18.5px;
+                        margin-bottom: 0;
+                        margin-right: 8px;
+                      }
+                      
+                      .switch input { 
+                        opacity: 0;
+                        width: 0;
+                        height: 0;
+                      }
+                      
+                      .slider {
+                        position: absolute;
+                        cursor: pointer;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background-color: #ccc;
+                        -webkit-transition: .4s;
+                        transition: .4s;
+                      }
+                      
+                      .slider:before {
+                        position: absolute;
+                        content: "";
+                        height: 13px;
+                        width: 10px;
+                        left: 0px;
+                        bottom: 4px;
+                        background-color: white;
+                        -webkit-transition: .4s;
+                        transition: .4s;
+                      }
+                      
+                      input:checked + .slider {
+                        background-color: #2196F3;
+                      }
+                      
+                      input:focus + .slider {
+                        box-shadow: 0 0 1px #2196F3;
+                      }
+                      
+                      input:checked + .slider:before {
+                        -webkit-transform: translateX(26px);
+                        -ms-transform: translateX(26px);
+                        transform: translateX(26px);
+                      }
+                      
+                      .slider.round {
+                        border-radius: 34px;
+                      }
+                      
+                      .slider.round:before {
+                        border-radius: 50%;
+                      }
                 }
             }
         }
-    }
 
-    .footer{
-        text-align: center;
-        padding: 10px 0;
-        position: absolute;
+        .footer {
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 377px;
+            .politics {
+                display: flex;
+                justify-content: space-between;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 24px;
+                text-align: left;
+                color: #8392AB;
+                margin-bottom: 38px;
+            }
 
-        bottom: 0;
-        margin-top: 100px;
-        .politics{
-            display: flex;
-            justify-content: space-between;
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 24px;
-            text-align: left;
-            color: #8392AB;
-        }
-
-        .rights{
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 21px;
-            text-align: left;
-            color: #8392AB;
+            .rights {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 21px;
+                text-align: left;
+                color: #8392AB;
+                text-align: center;
+            }
         }
     }
 }

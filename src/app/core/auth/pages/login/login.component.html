@@ -5,8 +5,8 @@
         <div class="header flex">
             <p>Vaga Front-end AchieveMore</p>
             <div class="menu">
-                <p>Institucional</p>
-                <p>Produtos</p>
+                <p>Institucional <img src="../../../../../assets/images/arrow-symbol-login.svg" /></p>
+                <p>Produtos <img src="../../../../../assets/images/arrow-symbol-login.svg" /></p>
                 <p>Contato</p>
             </div>
         </div>
@@ -42,21 +42,29 @@
                 </div>
 
                 <div class="forget-container flex">
-                    <p>esqueceu a senha</p>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                      <p>esqueceu a senha</p>
                 </div>
 
                 <button type="submit" [disabled]="loginForm.invalid">Entrar</button>
             </form>
+
         </section>
 
+
+
+        <section class="footer">
+            <div class="politics">
+                <p>Política de Privacidade</p>
+                <p>Política de Segurança</p>
+            </div>
+            <p class="rights">© 2024 AchieveMore - Todos os direitos reservados.</p>
+        </section>
         
 
     </div>
-    <section class="footer">
-        <div class="politics">
-            <p>Política de Privacidade</p>
-            <p>Política de Segurança</p>
-        </div>
-        <p class="rights">© 2024 AchieveMore - Todos os direitos reservados.</p>
-    </section>
+
 </section>

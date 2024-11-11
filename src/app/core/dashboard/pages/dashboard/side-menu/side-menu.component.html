@@ -1,0 +1,23 @@
+<div class="menu">
+    <h1>Vaga Front-end AchieveMore</h1>
+    <hr />
+
+    <div class="menu-container">
+        <div *ngFor="let item of menuItems">
+            <div class="menu-item" (click)="toggleSubmenu(item)">
+
+                <div>
+                    <img [src]="item.icon" />
+                    <span>{{ item.label }}</span>
+                </div>
+                <span class="menu-arrow" [ngClass]="{ 'active': item.isOpen }"><img src="../../../../../../assets/images/arrow symbol.svg" /></span>
+            </div>
+            <div class="submenu" *ngIf="item.isOpen">
+                <div [class]="subItem" *ngFor="let subItem of item.submenu" [ngClass]="{ 'selected': subItem === selectedSubItem }"
+                (click)="selectSubItem(subItem)">
+                    {{ subItem }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

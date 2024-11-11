@@ -28,7 +28,6 @@ export class AuthService {
       }
      },
      error: (error) => {
-      console.log(error)
       if(error.status === 400){
         this.snackbarService.show({type: 'Error', text: 'Erro ao fazer login. Usuário não encontrado.', color: 'red'});
       }else{

@@ -1,0 +1,37 @@
+.card-container{
+    width: 100%;
+    margin: auto;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    height: 585px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    h5 {
+        margin-bottom: 5px;
+        font-family: Open Sans;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 27.4px;
+        letter-spacing: -0.8px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        color: #172B4D;
+        margin-bottom: 20px;
+    }
+    button {
+        width: 350px;
+        height: 41px;
+        background-color: #5E72E4;
+        color: #FFFFFF;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 21px;
+        box-shadow: 0px 0px 6px 0px #000000;
+        margin-top: 24px;
+        cursor: pointer;
+    }
+}

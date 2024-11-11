@@ -1,0 +1,31 @@
+<div class="config-container">
+    <div class="manager-container">
+        <div>
+            <p>
+                gerenciar /
+            </p>
+            <span>Usuarios</span>
+        </div>
+     
+        <img src="../../../../../../assets/images/icon-manager.svg" />
+    </div>
+    <div class="user-container">
+        
+        <div class="input-container">
+            <img class="input-icon" src="../../../../../../assets/images/search-icon.svg" />
+            <input type="text" placeholder="Digite aqui..." class="search-input" />
+        </div>
+
+        <div>
+            <img src="../../../../../../assets/images/user.svg" />
+            <p>{{userLoggedIn.first_name}} {{userLoggedIn.last_name}}</p>
+        </div>
+        <div class="tooltip">
+            <img class="logout" src="../../../../../../assets/images/config.svg" (click)="logout()" alt="logout"/>
+            <span class="tooltip-text">Logout</span>
+        </div>
+       
+        <img src="../../../../../../assets/images/sino.svg" />
+    </div>
+
+</div>

@@ -3,47 +3,29 @@ import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { TableUsersComponent } from './table-users/table-users.component';
 import { SnackbarService } from '../../../../shared/services/snackbar.service';
-import { AuthService } from '../../../../shared/services/auth.service';
 import { users, UsersService } from '../../../../shared/services/users.service';
+import { SideMenuComponent } from './side-menu/side-menu.component';
+import { TopMenuComponent } from './top-menu/top-menu.component';
+import { BlankDashboardComponent } from './blank-dashboard/blank-dashboard.component';
 
-interface MenuItem {
-  label: string;
-  icon: string;
-  submenu?: string[];
-  isOpen?: boolean;
-}
+
 
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, TableUsersComponent],
+  imports: [CommonModule, HttpClientModule, TableUsersComponent, SideMenuComponent, TopMenuComponent, BlankDashboardComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
   listUsers: users[] = [];
   userLoggedIn: users = {};
-  constructor(private authService: AuthService, private usersService: UsersService, private snackbarService: SnackbarService){}
-  menuItems: MenuItem[] = [
-    { label: 'Dashboard', icon: '../../../../../assets/images/icon-dashboard.svg', submenu: ['Gerenciar'], isOpen: false },
-    { label: 'Usuários', icon: '../../../../../assets/images/Icon-user-menu.svg', submenu: ['Listagem', 'Cadastrar'], isOpen: true }
-  ];
-  selectedSubItem: string | null = 'Listagem';
+  subMenuSelected: string = 'Listagem';
+  constructor(private usersService: UsersService, private snackbarService: SnackbarService){}
+
   ngOnInit(){
     this.getUsers();
-  }
-
-  toggleSubmenu(item: MenuItem) {
-    item.isOpen = !item.isOpen;
-  }
-
-  selectSubItem(subItem: string) {
-    this.selectedSubItem = subItem;
-  }
-
-  logout(){
-    this.authService.logout();
   }
 
   getUsers(){
@@ -55,9 +37,13 @@ export class DashboardComponent {
         this.userLoggedIn = {...users.data?.find((user: users) => user.email === emailLocalStorage)};
       }),
       error: ((error: any) => {
-        console.log('', error)
+        console.log('error:', error)
         this.snackbarService.show({type: 'Error', text: 'Error ao carregar a lista de usuarios', color: 'red'});
       })
     })
+  }
+
+  checkSubMenu(subMenu: string){
+    this.subMenuSelected = subMenu;
   }
 }

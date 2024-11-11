@@ -2,63 +2,16 @@
 
     <div class="container-layout">
 
-        <div class="menu">
-            <h1>Vaga Front-end AchieveMore</h1>
-            <hr />
-
-            <div class="menu-container">
-                <div *ngFor="let item of menuItems">
-                    <div class="menu-item" (click)="toggleSubmenu(item)">
-
-                        <div>
-                            <img [src]="item.icon" />
-                            <span>{{ item.label }}</span>
-                        </div>
-                        <span class="menu-arrow" [ngClass]="{ 'active': item.isOpen }"><img src="../../../../../assets/images/arrow symbol.svg" /></span>
-                    </div>
-                    <div class="submenu" *ngIf="item.isOpen">
-                        <div [class]="subItem" *ngFor="let subItem of item.submenu" [ngClass]="{ 'selected': subItem === selectedSubItem }"
-                        (click)="selectSubItem(subItem)">
-                            {{ subItem }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <app-side-menu (subMenuSelected)="checkSubMenu($event)" [selectedSubItem]="subMenuSelected"></app-side-menu>
 
         <div class="list-container">
-            <div class="config-container">
-                <div class="manager-container">
-                    <div>
-                        <p>
-                            gerenciar /
-                        </p>
-                        <span>Usuarios</span>
-                    </div>
-                 
-                    <img src="../../../../../assets/images/icon-manager.svg" />
-                </div>
-                <div class="user-container">
-                    
-                    <div class="input-container">
-                        <img class="input-icon" src="../../../../../assets/images/search-icon.svg" />
-                        <input type="text" placeholder="Digite aqui..." class="search-input" />
-                    </div>
+            <app-top-menu [userLoggedIn]="userLoggedIn"></app-top-menu>
+            <app-table-users [users]="listUsers"  *ngIf="subMenuSelected === 'Listagem'; else showBlankDashBoard"></app-table-users>
 
-                    <div>
-                        <img src="../../../../../assets/images/user.svg" />
-                        <p>{{userLoggedIn.first_name}} {{userLoggedIn.last_name}}</p>
-                    </div>
-                    <div class="tooltip">
-                        <img class="logout" src="../../../../../assets/images/config.svg" (click)="logout()" alt="logout"/>
-                        <span class="tooltip-text">Logout</span>
-                    </div>
-                   
-                    <img src="../../../../../assets/images/sino.svg" />
-                </div>
-
-            </div>
-            <app-table-users [users]="listUsers"  ></app-table-users>
+            <ng-template #showBlankDashBoard>
+                <app-blank-dashboard (goToListPage)="checkSubMenu($event)"></app-blank-dashboard>
+            </ng-template>
+           
             <section class="footer">
    
                 <p class="rights">© 2024 AchieveMore - Todos os direitos reservados.</p>

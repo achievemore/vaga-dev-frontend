@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from '../../../../shared/services/auth.service';
+import { SnackbarService } from '../../../../shared/services/snackbar.service';
 
 
 
@@ -18,6 +19,7 @@ export class LoginComponent {
   
   constructor(private fb: FormBuilder,
      private authService: AuthService,
+     private snackbarService: SnackbarService
     ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -35,7 +37,7 @@ export class LoginComponent {
       this.authService.login(body);
 
     } else {
-      console.log('Formulário Inválido');
+      this.snackbarService.show({type: 'Error', text: 'Formulário Inválido.', color: 'red'});
     }
   }
 

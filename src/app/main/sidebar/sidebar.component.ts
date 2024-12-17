@@ -12,8 +12,8 @@ import { RouterModule } from "@angular/router";
 export class SidebarComponent implements OnInit, OnDestroy {
   menus: Array<IMenus> = [
     { name: "Dashboard", link: "dashboard", icon: "dashboard" },
-    { name: "Listagem", link: "list", icon: "file" },
-    { name: "Cadastrar", link: "register", icon: "unordered-list" },
+    { name: "Listagem", link: "users", icon: "file" },
+    { name: "Cadastrar", link: "user", icon: "unordered-list" },
   ];
 
   ngOnInit(): void {}

@@ -1,0 +1,10 @@
+<div class="sidebar-head">
+SIDEBAr
+</div>
+<ul >
+  @for (item of menus; track item.name) {
+    <li [routerLink]="item.link" routerLinkActive="ant-menu-item-selected">
+      <span >{{item.name}}</span>
+    </li>
+  }
+</ul>

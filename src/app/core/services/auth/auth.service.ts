@@ -4,6 +4,7 @@ import { environment } from "../../../../environments/environment";
 import { IAuth } from "../../../interface/Auth";
 import { map, Observable } from "rxjs";
 import { LocalStorageService } from "ngx-webstorage";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: "any",
@@ -11,7 +12,7 @@ import { LocalStorageService } from "ngx-webstorage";
 export class AuthService {
   private apiUrl: string = environment.baseUrl;
 
-  constructor(private http: HttpClient, private storage: LocalStorageService) {}
+  constructor(private http: HttpClient, private storage: LocalStorageService, private route:Router) {}
 
   login(data: IAuth): Observable<null> {
     const url = `${this.apiUrl}login`;
@@ -27,6 +28,19 @@ export class AuthService {
 
   isLoggedId(key:string):boolean {
     return this.storage.retrieve(key) ? true : false;
+  }
+
+  redirectLogin():void {
+    this.route.navigateByUrl('/auth');
+  }
+
+  logout():void {
+    const listKey = ['token','email'];
+    listKey.forEach((val:string) => {
+      this.storage.clear(val)
+    });
+
+    this.redirectLogin();
   }
 
 }

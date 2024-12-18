@@ -3,12 +3,13 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from "@angular/forms";
 import { AuthService } from "../../core/services/auth/auth.service";
 import { Subscription } from "rxjs";
 import { Router } from "@angular/router";
+import { CommonModule } from "@angular/common";
 
 
 @Component({
   selector: "app-auth",
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: "./auth.component.html",
   styleUrl: "./auth.component.scss",
 })
@@ -38,7 +39,15 @@ export class AuthComponent implements OnInit, OnDestroy {
     });
   }
 
+  isLoggedIn():boolean {
+    return this.authService.isLoggedId('token')
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  logout():void {
+    this.authService.logout();
   }
 }

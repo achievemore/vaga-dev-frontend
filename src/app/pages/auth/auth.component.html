@@ -1,7 +1,10 @@
+@if (isLoggedIn()) {
+<button type="button" (click)="logout()">Sair</button>
 
-
+} @else {
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <input type="text" formControlName="email" placeholder="email" />
-    <input type="text" formControlName="password" placeholder="password" />
-    <button type="submit">Login</button>
+  <input type="text" formControlName="email" placeholder="email" />
+  <input type="text" formControlName="password" placeholder="password" />
+  <button type="submit">Login</button>
 </form>
+}

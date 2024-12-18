@@ -1,9 +1,13 @@
-<app-sidebar *ngIf="isLoggedId()"></app-sidebar>
+@if (isLoggedId()) {
+<app-sidebar></app-sidebar>
+}
+
 <main>
-  <header *ngIf="isLoggedId()">
+  @if (isLoggedId()) {
+  <header>
     <app-header></app-header>
   </header>
+  }
+
   <router-outlet></router-outlet>
 </main>
-
-

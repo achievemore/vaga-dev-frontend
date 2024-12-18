@@ -6,7 +6,7 @@ export interface IUsers {
   data: Array<IUser>;
 }
 
-interface IUser {
+export interface IUser {
   id: number;
   email: string;
   first_name: string;

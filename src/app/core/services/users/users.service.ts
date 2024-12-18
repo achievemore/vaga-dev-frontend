@@ -21,6 +21,9 @@ export class UsersService {
      this.http.get<IUsers>(url)
      .subscribe({next:(res) => {
       this.changedUsers$.next(res);
-     }})
+     },
+    error:(err) => {
+      this.changedUsers$.error(err)
+    }})
   }
 }

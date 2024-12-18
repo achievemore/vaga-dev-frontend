@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --configuration=development",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -23,7 +23,7 @@
     "bootstrap": "^5.3.3",
     "graphql": "^16",
     "lodash": "^4.17.21",
-    "ngx-webstorage": "^13.0.0",
+    "ngx-webstorage": "^18.0.0",
     "primeicons": "^7.0.0",
     "primeng": "^17.18.11",
     "rxjs": "~7.8.0",

@@ -1,3 +1,16 @@
 .wrapper {
-    padding: 20px;
+  .header {
+    .title {
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
 }
+
+.users-table {
+  position: relative;
+  width: 100%;
+  height: 585px;
+  overflow: auto;
+}
+

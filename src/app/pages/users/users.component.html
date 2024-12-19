@@ -1,18 +1,38 @@
 <div class="wrapper">
-    <div class="card">
-        <div class="card-body">
-            <p>users works!</p>
-    
-            <div>
-              @for (item of listUser; track $index) {
-              <p>{{ item.first_name }}</p>
-              }
-            </div>
-          </div>
-     
-    </div>
+  <div class="header">
+    <div class="title">Listagem de usuários</div>
+    <p>Visualização dos usuários cadastrados.</p>
+    <nz-table
+      nzShowSizeChanger
+      [nzTotal]="total"
+      [nzPageSize]="pageSize"
+      [nzPageIndex]="pageIndex"
+      [nzFrontPagination]="false"
+      class="users-table"
+      #sortTable
+      [nzData]="listUser"
+      nzTableLayout="fixed"
+      (nzQueryParams)="onQueryParamsChange($event)"
+    >
+      <thead >
+        <tr>
+          @for (column of listColumn; track column) {
+          <th [nzSortFn]="column?.compare" >
+            {{ column.title }}
+          </th>
+          }
+        </tr>
+      </thead>
+      <tbody>
+        @for (data of sortTable.data; track data) {
+        <tr>
+          <td>{{ data.email }}</td>
+          <td>{{ data.first_name }}</td>
+          <td>{{ data.last_name }}</td>
+          <td>{{ data.avatar }}</td>
+        </tr>
+        }
+      </tbody>
+    </nz-table>
+  </div>
 </div>
-
-
-
-

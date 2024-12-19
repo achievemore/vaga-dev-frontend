@@ -1,8 +1,8 @@
 export interface IUsers {
-  page: string;
-  per_page: string;
-  total: string;
-  total_pages: string;
+  page: number;
+  per_page: number;
+  total: number;
+  total_pages: number;
   data: Array<IUser>;
 }
 

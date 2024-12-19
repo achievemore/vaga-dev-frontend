@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environment';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { IUsers } from '../../../interface/Users';
 
 @Injectable({
@@ -15,11 +15,11 @@ export class UsersService {
 
   constructor(private http:HttpClient) { }
 
-  getUsers():void {
-    const url = `${this.apiUrl}users`
-
+  getUsers(page:number = 1, per_page:number = 6):void {
+    const url = `${this.apiUrl}users?page=${page}&per_page=${per_page}`
      this.http.get<IUsers>(url)
      .subscribe({next:(res) => {
+      console.log(res)
       this.changedUsers$.next(res);
      },
     error:(err) => {

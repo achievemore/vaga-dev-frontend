@@ -1,22 +1,31 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { IMenus } from "./../../interface/Menu";
+import { Component } from "@angular/core";
+import { IMenu } from "./../../interface/Menu";
 import { RouterModule } from "@angular/router";
+import { NzIconModule } from "ng-zorro-antd/icon";
+import { NzLayoutModule } from "ng-zorro-antd/layout";
+import { NzMenuModule } from "ng-zorro-antd/menu";
 
 @Component({
   selector: "app-sidebar",
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, NzMenuModule, NzLayoutModule, NzIconModule],
   templateUrl: "./sidebar.component.html",
   styleUrl: "./sidebar.component.scss",
 })
-export class SidebarComponent implements OnInit, OnDestroy {
-  menus: Array<IMenus> = [
-    { name: "Dashboard", link: "dashboard", icon: "dashboard" },
-    { name: "Listagem", link: "users", icon: "file" },
-    { name: "Cadastrar", link: "user", icon: "unordered-list" },
+export class SidebarComponent {
+  menus: Array<IMenu> = [
+    {
+      name: "Dashboard",
+      icon: "appstore",
+      subMenu: [{ name: "Gerenciar", link: "dashboard" }],
+    },
+    {
+      name: "Usuários",
+      icon: "copy",
+      subMenu: [
+        { name: "Listagem", link: "users" },
+        { name: "Cadastrar", link: "user" },
+      ],
+    },
   ];
-
-  ngOnInit(): void {}
-
-  ngOnDestroy(): void {}
 }

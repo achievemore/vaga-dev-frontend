@@ -1,1 +1,41 @@
+.app-layout {
+  height: 100vh;
+}
 
+.background-blue {
+  background-color: var(--bg-blue);
+  width: 100vw;
+  position: fixed;
+  z-index: 0;
+  height: 30vh;
+}
+
+.ant-layout-sider {
+  background-color: transparent;
+}
+
+.menu-sidebar {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+}
+
+nz-header {
+  padding: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+nz-content {
+  margin: 24px;
+}
+
+.content {
+  margin-top: 42px;
+  padding: 24px;
+  background: #fff;
+  position: relative;
+  z-index: 2;
+  border-radius: 15px;
+  height: 70vh;
+}

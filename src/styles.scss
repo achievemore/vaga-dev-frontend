@@ -1,5 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
-
 * {
  font-family: "Open Sans";
 }
+
+:root {
+    --bg-blue:#5E72E4;
+    --text-gray:#8392AB;
+}
+
+.ant-layout-header  {
+    background-color: transparent !important;
+  }
+
+  .ant-menu-inline {
+    border-right: none !important;
+  }
+
+  .ant-menu-sub.ant-menu-inline {
+    background: none !important;
+  }
+
+  

@@ -1,13 +1,18 @@
-<div class="sidebar-header">
-<span>Sidebar</span>>
-<ul >
-  @for (item of menus; track item.name) {
-    <li [routerLink]="item.link" routerLinkActive="ant-menu-item-selected">
-      <span class="">{{item.name}}</span>
+<div class="wrapper-sidebar">
+  <div class="sidebar-logo">
+    <a routerLink="/">
+      <h1>Vaga Front-end AchieveMore</h1>
+    </a>
+  </div>
+  <ul nz-menu nzMode="inline">
+    @for (item of menus; track $index) {
+    <li nz-submenu nzTitle="{{ item.name }}" nzIcon="{{ item.icon }}">
+      <ul>
+        @for (item of item.subMenu; track $index) {
+        <li nz-menu-item [routerLink]="item.link">{{ item.name }}</li>
+        }
+      </ul>
     </li>
-  }
-</ul>
+    }
+  </ul>
 </div>
-
-
-

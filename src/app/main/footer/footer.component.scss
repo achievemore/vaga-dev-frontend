@@ -1,0 +1,12 @@
+.wrapper-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--text-gray);
+    .right {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 10px;
+    }
+}

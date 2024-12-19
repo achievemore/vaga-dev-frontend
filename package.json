@@ -23,6 +23,7 @@
     "bootstrap": "^5.3.3",
     "graphql": "^16",
     "lodash": "^4.17.21",
+    "ng-zorro-antd": "^17.4.1",
     "ngx-webstorage": "^18.0.0",
     "primeicons": "^7.0.0",
     "primeng": "^17.18.11",

@@ -1,13 +1,22 @@
-@if (isLoggedId()) {
-<app-sidebar></app-sidebar>
-}
+<div class="container-fluid">
+  <div class="row flex-nowrap">
+    <div class="col-auto col-md-3 col-xl-2 pr-xl-4  bg-dark">
+      @if (isLoggedId()) {
+        <app-sidebar></app-sidebar>
+        }
+    </div>
+    <div class="col py-3 ">
+      <main>
+        @if (isLoggedId()) {
+        <header>
+          <app-header></app-header>
+        </header>
+        }
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </div>
+  
+</div>
 
-<main>
-  @if (isLoggedId()) {
-  <header>
-    <app-header></app-header>
-  </header>
-  }
 
-  <router-outlet></router-outlet>
-</main>

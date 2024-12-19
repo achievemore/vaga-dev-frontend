@@ -2,8 +2,21 @@
   <div class="header">
     <div class="title">Listagem de usuários</div>
     <p>Visualização dos usuários cadastrados.</p>
+    <div class="page-sizes">
+      <nz-select
+      [(ngModel)]="selectedValue"
+        (ngModelChange)="handleChanged($event)"
+        nzPlaceHolder="Selecione"
+      >
+        @for (page of PageSizes; track page) {
+        <nz-option [nzValue]="page" [nzLabel]="page"></nz-option>
+        }
+      </nz-select>
+      <p>
+        Entradas por página
+      </p>
+    </div>
     <nz-table
-      nzShowSizeChanger
       [nzTotal]="total"
       [nzPageSize]="pageSize"
       [nzPageIndex]="pageIndex"
@@ -14,10 +27,10 @@
       nzTableLayout="fixed"
       (nzQueryParams)="onQueryParamsChange($event)"
     >
-      <thead >
+      <thead>
         <tr>
           @for (column of listColumn; track column) {
-          <th [nzSortFn]="column?.compare" >
+          <th [nzSortFn]="column?.compare">
             {{ column.title }}
           </th>
           }

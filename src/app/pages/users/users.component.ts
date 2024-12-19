@@ -3,11 +3,12 @@ import { UsersService } from "../../core/services/users/users.service";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { IUser, IUsers } from "../../interface/Users";
 import { NzTableModule, NzTableQueryParams } from "ng-zorro-antd/table";
-
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { FormsModule } from "@angular/forms";
 @Component({
   selector: "app-users",
   standalone: true,
-  imports: [NzTableModule],
+  imports: [NzTableModule,NzSelectModule, FormsModule],
   providers: [UsersService],
   templateUrl: "./users.component.html",
   styleUrl: "./users.component.scss",
@@ -16,6 +17,10 @@ export class UsersComponent implements OnInit {
   private usersService = inject(UsersService);
   readonly #destroyRef = inject(DestroyRef);
   public listUser: Array<IUser> = [];
+
+  public PageSizes: number[] = [6,10,20];
+
+  public selectedValue:number = 6;
 
   listColumn: Array<any> = [
     { title: "Email" ,  compare: (a: IUser, b: IUser) => a.email.localeCompare(b.email) },
@@ -58,5 +63,9 @@ export class UsersComponent implements OnInit {
   onQueryParamsChange(params: NzTableQueryParams): void {
     const { pageSize, pageIndex, sort, filter } = params;
     this.getUser(pageIndex, pageSize)
+  }
+
+  handleChanged(pageSize: number): void {
+    this.getUser(this.pageIndex,pageSize)
   }
 }

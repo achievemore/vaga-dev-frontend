@@ -19,7 +19,6 @@ export class UsersService {
     const url = `${this.apiUrl}users?page=${page}&per_page=${per_page}`
      this.http.get<IUsers>(url)
      .subscribe({next:(res) => {
-      console.log(res)
       this.changedUsers$.next(res);
      },
     error:(err) => {

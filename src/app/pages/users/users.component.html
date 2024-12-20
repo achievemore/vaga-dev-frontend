@@ -42,7 +42,12 @@
           <td>{{ data.email }}</td>
           <td>{{ data.first_name }}</td>
           <td>{{ data.last_name }}</td>
-          <td>{{ data.avatar }}</td>
+          @if (data.avatar.length >= 22) {
+            <td nz-tooltip nzTooltipTitle="{{data.avatar}}">{{ data.avatar | slice : 0 : 22 }}...</td>
+          } @else {
+            <td >{{ data.avatar}}</td>
+          }
+         
         </tr>
         }
       </tbody>

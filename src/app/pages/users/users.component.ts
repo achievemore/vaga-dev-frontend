@@ -5,10 +5,12 @@ import { IUser, IUsers } from "../../interface/Users";
 import { NzTableModule, NzTableQueryParams } from "ng-zorro-antd/table";
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { FormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 @Component({
   selector: "app-users",
   standalone: true,
-  imports: [NzTableModule,NzSelectModule, FormsModule],
+  imports: [NzTableModule,NzSelectModule, FormsModule, CommonModule,NzToolTipModule],
   providers: [UsersService],
   templateUrl: "./users.component.html",
   styleUrl: "./users.component.scss",

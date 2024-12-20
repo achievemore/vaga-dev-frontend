@@ -1,5 +1,10 @@
 import { Component, inject, OnDestroy, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, ReactiveFormsModule } from "@angular/forms";
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from "@angular/forms";
 import { AuthService } from "../../core/services/auth/auth.service";
 import { Subscription } from "rxjs";
 import { Router } from "@angular/router";
@@ -9,8 +14,9 @@ import { NzButtonModule } from "ng-zorro-antd/button";
 import { NzCheckboxModule } from "ng-zorro-antd/checkbox";
 import { NzFormModule } from "ng-zorro-antd/form";
 import { NzInputModule } from "ng-zorro-antd/input";
-import { NzSwitchModule } from 'ng-zorro-antd/switch';
+import { NzSwitchModule } from "ng-zorro-antd/switch";
 import { NzSelectModule } from "ng-zorro-antd/select";
+import { messageError } from "../../core/utils/message-error";
 
 @Component({
   selector: "app-auth",
@@ -25,14 +31,13 @@ import { NzSelectModule } from "ng-zorro-antd/select";
     NzFormModule,
     NzInputModule,
     NzSwitchModule,
-    NgOptimizedImage
+    NgOptimizedImage,
   ],
   templateUrl: "./auth.component.html",
   styleUrl: "./auth.component.scss",
 })
 export class AuthComponent implements OnInit, OnDestroy {
-
-  public backgroundUrl:string = '/assets/images/background.png'
+  public backgroundUrl: string = "/assets/images/background.png";
 
   public selectedValueInst = "Institucional";
 
@@ -44,9 +49,12 @@ export class AuthComponent implements OnInit, OnDestroy {
 
   // TODO: Dados mokados
   public form: FormGroup = this.fb.group({
-    email: ["eve.holt@reqres.in"],
-    password: ["cityslicka"],
-    remenber:[false]
+    email: [
+      "eve.holt@reqres.in",
+      [Validators.required, Validators.email, Validators.maxLength(20)],
+    ],
+    password: ["cityslicka", [Validators.required, Validators.maxLength(20)]],
+    remenber: [false],
   });
 
   private authService = inject(AuthService);
@@ -58,7 +66,16 @@ export class AuthComponent implements OnInit, OnDestroy {
   ngOnInit(): void {}
 
   onSubmit() {
-    this.subscription = this.authService.login(this.form.value).subscribe({
+    if (!this.validateForm(this.form)) return;
+
+    const { email, password } = this.form.value;
+
+    const data = {
+      email: email,
+      password: password,
+    };
+
+    this.subscription = this.authService.login(data).subscribe({
       next: () => {
         this.route.navigateByUrl("/");
       },
@@ -78,5 +95,18 @@ export class AuthComponent implements OnInit, OnDestroy {
 
   logout(): void {
     this.authService.logout();
+  }
+
+  private validateForm(form: FormGroup): boolean {
+    for (const i in form.controls) {
+      form.controls[i].markAsDirty();
+      form.controls[i].updateValueAndValidity();
+    }
+
+    return form.valid;
+  }
+
+  message(form:FormGroup,nameField:string):string | undefined {
+    return messageError(form, nameField)
   }
 }

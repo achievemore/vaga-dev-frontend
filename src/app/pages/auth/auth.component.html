@@ -3,38 +3,43 @@
 
 } @else {
 <div class="wrapper-login">
-  <img [ngSrc]="backgroundUrl" [alt]="" width="100" height="100" />
+  <img [ngSrc]="backgroundUrl" [alt]="" width="100" height="100" priority />
   <div class="main">
     <div class="header">
       <span>Vaga Front-end AchieveMore</span>
-      
+
       <div class="right">
         <select [(ngModel)]="selectedValueInst">
           @for (item of listInstitutional; track $index) {
-            <option value="{{item}}">{{item}}</option>
+          <option value="{{ item }}">{{ item }}</option>
           }
         </select>
-  
+
         <select [(ngModel)]="selectedValueInst">
           @for (item of listInstitutional; track $index) {
-            <option value="{{item}}">{{item}}</option>
+          <option value="{{ item }}">{{ item }}</option>
           }
         </select>
-  
+
         <span><a>Contato</a></span>
       </div>
-     
     </div>
     <div class="title-description">
       <div class="title">Bem vindo(a)</div>
       <div class="sub-title">Use esse formulário para fazer login</div>
     </div>
-    <form [nzLayout]="'vertical'" [formGroup]="form" nz-form class="form" (ngSubmit)="onSubmit()">
+    <form
+      [nzLayout]="'vertical'"
+      [formGroup]="form"
+      nz-form
+      class="form"
+      (ngSubmit)="onSubmit()"
+    >
       <div class="title">Área restrita</div>
       <div class="sub-title">Digite seu e-mail e senha para entrar</div>
       <nz-form-item>
         <nz-form-label>E-mail</nz-form-label>
-        <nz-form-control nzErrorTip="Please input your email!">
+        <nz-form-control [nzErrorTip]="message(form, 'email')">
           <nz-input-group>
             <input
               type="text"
@@ -47,7 +52,7 @@
       </nz-form-item>
       <nz-form-item>
         <nz-form-label>Senha</nz-form-label>
-        <nz-form-control nzErrorTip="Please input your Password!">
+        <nz-form-control [nzErrorTip]="message(form, 'password')">
           <nz-input-group>
             <input
               type="password"

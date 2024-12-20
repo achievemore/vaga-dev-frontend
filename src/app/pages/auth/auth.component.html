@@ -67,7 +67,14 @@
         <nz-switch formControlName="remenber"></nz-switch>
         <span>Esqueceu sua senha</span>
       </div>
-      <button nz-button class="btn-login" [nzType]="'primary'">Entrar</button>
+      <button
+        nz-button
+        class="btn-login"
+        [nzType]="'primary'"
+        [nzLoading]="isLoading$ | async"
+      >
+        {{ (isLoading$ | async) ? "Carregando" : "Entrar" }}
+      </button>
     </form>
   </div>
 </div>

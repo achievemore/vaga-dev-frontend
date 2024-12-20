@@ -7,6 +7,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { Observable } from "rxjs";
 @Component({
   selector: "app-users",
   standalone: true,
@@ -24,6 +25,8 @@ export class UsersComponent implements OnInit {
 
   public selectedValue:number = 6;
 
+  public isLoading$:Observable<boolean> = this.usersService.loading$.asObservable();
+
   listColumn: Array<any> = [
     { title: "Email" ,  compare: (a: IUser, b: IUser) => a.email.localeCompare(b.email) },
     { title: "Primeiro Nome",compare: (a: IUser, b: IUser) => a.first_name.localeCompare(b.first_name) },
@@ -34,8 +37,6 @@ export class UsersComponent implements OnInit {
   public total: number = 1;
   public pageSize: number = 6;
   public pageIndex: number = 1;
-
-  constructor() {}
 
   ngOnInit(): void {
     this.usersService.changedUsers$

@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit } from "@angular/core";
+import { Component, DestroyRef, inject, OnInit } from "@angular/core";
 import {
   FormBuilder,
   FormGroup,
@@ -6,7 +6,6 @@ import {
   Validators,
 } from "@angular/forms";
 import { AuthService } from "../../core/services/auth/auth.service";
-import { Subscription } from "rxjs";
 import { Router } from "@angular/router";
 import { CommonModule, NgOptimizedImage } from "@angular/common";
 import { FormsModule } from "@angular/forms";
@@ -18,6 +17,9 @@ import { NzSwitchModule } from "ng-zorro-antd/switch";
 import { NzSelectModule } from "ng-zorro-antd/select";
 import { messageError } from "../../core/utils/message-error";
 import { NzNotificationService } from "ng-zorro-antd/notification";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { Observable } from "rxjs";
+
 @Component({
   selector: "app-auth",
   standalone: true,
@@ -36,7 +38,7 @@ import { NzNotificationService } from "ng-zorro-antd/notification";
   templateUrl: "./auth.component.html",
   styleUrl: "./auth.component.scss",
 })
-export class AuthComponent implements OnInit, OnDestroy {
+export class AuthComponent {
   public backgroundUrl: string = "/assets/images/background.png";
 
   public selectedValueInst = "Institucional";
@@ -59,12 +61,11 @@ export class AuthComponent implements OnInit, OnDestroy {
 
   private authService = inject(AuthService);
   private notification = inject(NzNotificationService);
+  readonly #destroyRef = inject(DestroyRef);
 
-  private subscription!: Subscription;
+  public isLoading$:Observable<boolean> = this.authService.loading$.asObservable();
 
   constructor(private fb: FormBuilder, private route: Router) {}
-
-  ngOnInit(): void {}
 
   onSubmit() {
     if (!this.validateForm(this.form)) return;
@@ -76,7 +77,9 @@ export class AuthComponent implements OnInit, OnDestroy {
       password: password,
     };
 
-    this.subscription = this.authService.login(data).subscribe({
+    this.authService.login(data)
+    .pipe(takeUntilDestroyed(this.#destroyRef))
+    .subscribe({
       next: () => {
         this.route.navigateByUrl("/");
       },
@@ -89,10 +92,6 @@ export class AuthComponent implements OnInit, OnDestroy {
 
   isLoggedIn(): boolean {
     return this.authService.isloggedin("token");
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 
   logout(): void {

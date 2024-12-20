@@ -3,9 +3,9 @@
     <div class="left">
       <div class="breadcrum-header">
         <nz-breadcrumb nzSeparator="/">
-            <nz-breadcrumb-item>Gerenciar</nz-breadcrumb-item>
-            <nz-breadcrumb-item><a>Usuarios</a></nz-breadcrumb-item>
-          </nz-breadcrumb>
+          <nz-breadcrumb-item>Gerenciar</nz-breadcrumb-item>
+          <nz-breadcrumb-item><a>Usuarios</a></nz-breadcrumb-item>
+        </nz-breadcrumb>
       </div>
       <span class="header-trigger">
         <span
@@ -17,7 +17,7 @@
     </div>
 
     <div class="right">
-      <div class="search" >
+      <div class="search">
         <nz-input-group [nzPrefix]="suffixIcon" class="field-search">
           <input type="text" nz-input placeholder="Digite aqui" />
         </nz-input-group>
@@ -26,14 +26,21 @@
         </ng-template>
       </div>
 
-      <div class="email"><span nz-icon nzType="user" nzTheme="outline"></span>{{email}}</div>
+      <div class="email">
+        <span nz-icon nzType="user" nzTheme="outline"></span>{{ email }}
+      </div>
       <div class="settings">
-        <span nz-icon nz-button
-        nz-popover
-        nzPopoverTitle="Settings"
-        nzPopoverTrigger="click"
-        [nzPopoverContent]="contentTemplate"
-        nzPopoverPlacement="bottom" nzType="setting" nzTheme="outline"></span>
+        <span
+          nz-icon
+          nz-button
+          nz-popover
+          nzPopoverTitle="Settings"
+          nzPopoverTrigger="click"
+          [nzPopoverContent]="contentTemplate"
+          nzPopoverPlacement="bottom"
+          nzType="setting"
+          nzTheme="outline"
+        ></span>
       </div>
       <div class="notification">
         <span nz-icon nzType="bell" nzTheme="outline"></span>
@@ -42,7 +49,5 @@
   </div>
 </div>
 <ng-template #contentTemplate>
-  <div>
-    <a (click)="logout()">Sair</a>
-  </div>
+  <span class="logout" (click)="logout()">Sair</span>
 </ng-template>

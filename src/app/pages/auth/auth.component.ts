@@ -17,7 +17,7 @@ import { NzInputModule } from "ng-zorro-antd/input";
 import { NzSwitchModule } from "ng-zorro-antd/switch";
 import { NzSelectModule } from "ng-zorro-antd/select";
 import { messageError } from "../../core/utils/message-error";
-
+import { NzNotificationService } from "ng-zorro-antd/notification";
 @Component({
   selector: "app-auth",
   standalone: true,
@@ -58,6 +58,7 @@ export class AuthComponent implements OnInit, OnDestroy {
   });
 
   private authService = inject(AuthService);
+  private notification = inject(NzNotificationService);
 
   private subscription!: Subscription;
 
@@ -80,6 +81,7 @@ export class AuthComponent implements OnInit, OnDestroy {
         this.route.navigateByUrl("/");
       },
       error: (err) => {
+        this.createNotification("error", "Erro no login");
         console.error(err);
       },
     });
@@ -106,7 +108,16 @@ export class AuthComponent implements OnInit, OnDestroy {
     return form.valid;
   }
 
-  message(form:FormGroup,nameField:string):string | undefined {
-    return messageError(form, nameField)
+  message(form: FormGroup, nameField: string): string | undefined {
+    return messageError(form, nameField);
+  }
+
+  createNotification(status: "success" | "error", message: string): void {
+    this.notification.create(
+      status,
+      status === "success" ? "Sucesso" : "Erro",
+      message,
+      { nzPlacement: "top" }
+    );
   }
 }

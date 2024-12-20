@@ -2,9 +2,69 @@
 <button type="button" (click)="logout()">Sair</button>
 
 } @else {
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <input type="text" formControlName="email" placeholder="email" />
-  <input type="text" formControlName="password" placeholder="password" />
-  <button type="submit">Login</button>
-</form>
+<div class="wrapper-login">
+  <img [ngSrc]="backgroundUrl" [alt]="" width="100" height="100" />
+  <div class="main">
+    <div class="header">
+      <span>Vaga Front-end AchieveMore</span>
+      
+      <div class="right">
+        <select [(ngModel)]="selectedValueInst">
+          @for (item of listInstitutional; track $index) {
+            <option value="{{item}}">{{item}}</option>
+          }
+        </select>
+  
+        <select [(ngModel)]="selectedValueInst">
+          @for (item of listInstitutional; track $index) {
+            <option value="{{item}}">{{item}}</option>
+          }
+        </select>
+  
+        <span><a>Contato</a></span>
+      </div>
+     
+    </div>
+    <div class="title-description">
+      <div class="title">Bem vindo(a)</div>
+      <div class="sub-title">Use esse formulário para fazer login</div>
+    </div>
+    <form [nzLayout]="'vertical'" [formGroup]="form" nz-form class="form" (ngSubmit)="onSubmit()">
+      <div class="title">Área restrita</div>
+      <div class="sub-title">Digite seu e-mail e senha para entrar</div>
+      <nz-form-item>
+        <nz-form-label>E-mail</nz-form-label>
+        <nz-form-control nzErrorTip="Please input your email!">
+          <nz-input-group>
+            <input
+              type="text"
+              nz-input
+              formControlName="email"
+              placeholder="Digite seu E-mail"
+            />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label>Senha</nz-form-label>
+        <nz-form-control nzErrorTip="Please input your Password!">
+          <nz-input-group>
+            <input
+              type="password"
+              nz-input
+              formControlName="password"
+              placeholder="Digite sua senha"
+            />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <div class="remenber">
+        <nz-switch formControlName="remenber"></nz-switch>
+        <span>Esqueceu sua senha</span>
+      </div>
+      <button nz-button class="btn-login" [nzType]="'primary'">Entrar</button>
+    </form>
+  </div>
+</div>
+
 }

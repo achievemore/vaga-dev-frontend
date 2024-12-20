@@ -26,7 +26,7 @@ export class AuthService {
     );
   }
 
-  isLoggedId(key:string):boolean {
+  isloggedin(key:string):boolean {
     return this.storage.retrieve(key) ? true : false;
   }
 

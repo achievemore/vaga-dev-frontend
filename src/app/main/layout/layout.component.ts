@@ -35,7 +35,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {}
 
-  isLoggedId(): boolean {
-    return this.authService.isLoggedId("token");
+  isloggedin(): boolean {
+    return this.authService.isloggedin("token");
   }
 }

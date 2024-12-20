@@ -1,4 +1,7 @@
-<div class="wrapper-footer">
+<div
+  class="wrapper-footer"
+  [ngClass]="{ 'wrapper-footer__login': !isloggedin }"
+>
   <div class="left">
     <p>© 2024 AchieveMore - Todos os direitos reservados.</p>
   </div>

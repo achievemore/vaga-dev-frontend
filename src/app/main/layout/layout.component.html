@@ -1,7 +1,7 @@
 <nz-layout class="app-layout">
-  <div [ngClass]="{'background-blue': isloggedin()}">
+  <div [ngClass]="{'background-blue': isloggedin}">
   </div>
-  @if (isloggedin()) {
+  @if (isloggedin) {
   <nz-sider
     class="menu-sidebar"
     nzCollapsible
@@ -14,13 +14,13 @@
   </nz-sider>
   }
   <nz-layout>
-    @if (isloggedin()) {
+    @if (isloggedin) {
     <nz-header>
       <app-header></app-header>
     </nz-header>
     }
     <nz-content>
-      <div [ngClass]="{'content': isloggedin()}">
+      <div [ngClass]="{'content': isloggedin}">
         <router-outlet></router-outlet>
       </div>
     </nz-content>

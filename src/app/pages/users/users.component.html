@@ -4,7 +4,7 @@
     <p>Visualização dos usuários cadastrados.</p>
     <div class="page-sizes">
       <nz-select
-      [(ngModel)]="selectedValue"
+        [(ngModel)]="selectedValue"
         (ngModelChange)="handleChanged($event)"
         nzPlaceHolder="Selecione"
       >
@@ -12,11 +12,10 @@
         <nz-option [nzValue]="page" [nzLabel]="page"></nz-option>
         }
       </nz-select>
-      <p>
-        Entradas por página
-      </p>
+      <p>Entradas por página</p>
     </div>
     <nz-table
+      [nzShowPagination]="true"
       [nzTotal]="total"
       [nzPageSize]="pageSize"
       [nzPageIndex]="pageIndex"
@@ -43,11 +42,12 @@
           <td>{{ data.first_name }}</td>
           <td>{{ data.last_name }}</td>
           @if (data.avatar.length >= 22) {
-            <td nz-tooltip nzTooltipTitle="{{data.avatar}}">{{ data.avatar | slice : 0 : 22 }}...</td>
+          <td nz-tooltip nzTooltipTitle="{{ data.avatar }}">
+            {{ data.avatar | slice : 0 : 22 }}...
+          </td>
           } @else {
-            <td >{{ data.avatar}}</td>
+          <td>{{ data.avatar }}</td>
           }
-         
         </tr>
         }
       </tbody>

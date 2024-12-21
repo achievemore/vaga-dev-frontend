@@ -22,11 +22,10 @@
       [nzPageSize]="pageSize"
       [nzPageIndex]="pageIndex"
       [nzFrontPagination]="false"
-      class="users-table"
       #sortTable
       [nzData]="listUser"
       nzTableLayout="fixed"
-      
+      [nzScroll]="{ y: '340px' }"
     >
       <thead>
         <tr>

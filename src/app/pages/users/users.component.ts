@@ -2,7 +2,7 @@ import { Component, DestroyRef, inject, OnInit } from "@angular/core";
 import { UsersService } from "../../core/services/users/users.service";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { IUser, IUsers } from "../../interface/Users";
-import { NzTableModule, NzTableQueryParams } from "ng-zorro-antd/table";
+import { NzTableModule } from "ng-zorro-antd/table";
 import { NzSelectModule } from "ng-zorro-antd/select";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
@@ -82,11 +82,6 @@ export class UsersComponent implements OnInit {
   private getUser(page?: number, pageSize?: number): void {
     this.usersService.getUsers(page, pageSize);
   }
-
-  // onQueryParamsChange(params: NzTableQueryParams): void {
-  //   const { pageSize, pageIndex, sort, filter } = params;
-  //   this.getUser(pageIndex, pageSize);
-  // }
 
   handleChanged(pageSize: number): void {
     this.pageSize = pageSize;

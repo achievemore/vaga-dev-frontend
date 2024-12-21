@@ -7,8 +7,9 @@ import { NzSelectModule } from "ng-zorro-antd/select";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { NzToolTipModule } from "ng-zorro-antd/tooltip";
-import { Observable } from "rxjs";
+import { debounceTime, Observable, Subject } from "rxjs";
 import { PaginationComponent } from "../../shared/components/pagination/pagination.component";
+import { NzInputModule } from "ng-zorro-antd/input";
 
 @Component({
   selector: "app-users",
@@ -19,7 +20,8 @@ import { PaginationComponent } from "../../shared/components/pagination/paginati
     FormsModule,
     CommonModule,
     NzToolTipModule,
-    PaginationComponent
+    PaginationComponent,
+    NzInputModule,
   ],
   providers: [UsersService],
   templateUrl: "./users.component.html",
@@ -30,14 +32,10 @@ export class UsersComponent implements OnInit {
   readonly #destroyRef = inject(DestroyRef);
   public listUser: Array<any> = [];
 
-  public PageSizes: number[] = [6, 10, 20];
-
-  public selectedValue: number = 6;
-
   public isLoading$: Observable<boolean> =
     this.usersService.loading$.asObservable();
 
-  listColumn: Array<any> = [
+  public listColumn: Array<any> = [
     {
       title: "Email",
       compare: (a: IUser, b: IUser) => a.email.localeCompare(b.email),
@@ -57,8 +55,16 @@ export class UsersComponent implements OnInit {
   public pageSize: number = 6;
   public pageIndex: number = 1;
 
+  // Page Size
+  public PageSizes: number[] = [6, 10, 20];
+  public selectedValue: number = 6;
+
+  // Search
+  public searchSend$ = new Subject();
+  public search: string = "";
+
   ngOnInit(): void {
-    this.getUser()
+    this.getUser();
     this.usersService.changedUsers$
       .pipe(takeUntilDestroyed(this.#destroyRef))
       .subscribe({
@@ -69,6 +75,16 @@ export class UsersComponent implements OnInit {
           console.error(err);
           this.setParamsTable();
         },
+      });
+
+    this.handleSearchChanged();
+  }
+
+  private handleSearchChanged(): void {
+    this.searchSend$
+      .pipe(debounceTime(800), takeUntilDestroyed(this.#destroyRef))
+      .subscribe(() => {
+        this.filterList;
       });
   }
 
@@ -88,9 +104,19 @@ export class UsersComponent implements OnInit {
     this.getUser(this.pageIndex, pageSize);
   }
 
-  pageChanged(pageIndex:number) {
+  pageChanged(pageIndex: number) {
     this.pageIndex = pageIndex;
     this.getUser(pageIndex, this.pageSize);
   }
 
+  get filterList(): void {
+    if (!this.search) {
+      return this.getUser();
+    }
+
+    this.listUser = this.listUser.filter((item: IUser) => {
+      const result = item.email.indexOf(this.search) !== -1;
+      return result;
+    });
+  }
 }

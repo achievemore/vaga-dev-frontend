@@ -2,19 +2,35 @@
   <div class="header">
     <div class="title">Listagem de usuários</div>
     <p>Visualização dos usuários cadastrados.</p>
-    <div class="page-sizes">
-      <nz-select
-        [nzDisabled]="isLoading$ | async"
-        [(ngModel)]="selectedValue"
-        (ngModelChange)="handleChanged($event)"
-        nzPlaceHolder="Selecione"
-      >
-        @for (page of PageSizes; track page) {
-        <nz-option [nzValue]="page" [nzLabel]="page"></nz-option>
-        }
-      </nz-select>
-      <p>Entradas por página</p>
+    <div class="inputs">
+      <!-- Select Page Size -->
+      <div class="page-sizes">
+        <nz-select
+          [nzDisabled]="(isLoading$ | async) && listUser.length === 0"
+          [(ngModel)]="selectedValue"
+          (ngModelChange)="handleChanged($event)"
+          nzPlaceHolder="Selecione"
+        >
+          @for (page of PageSizes; track page) {
+          <nz-option [nzValue]="page" [nzLabel]="page"></nz-option>
+          }
+        </nz-select>
+        <p>Entradas por página</p>
+      </div>
+      <!-- Field Search -->
+      <div class="search">
+        <nz-input-group class="field-search">
+          <input
+            type="text"
+            [(ngModel)]="search"
+            (ngModelChange)="searchSend$.next(null)"
+            nz-input
+            placeholder="Pesquise aqui"
+          />
+        </nz-input-group>
+      </div>
     </div>
+
     <nz-table
       [nzLoading]="isLoading$ | async"
       [nzShowPagination]="false"
@@ -54,14 +70,15 @@
       </tbody>
     </nz-table>
     <div class="footer">
-      <span>
-        Mostrando 1 a {{pageSize}} de {{total}} entradas
-      </span>
+      @if ((isLoading$ | async) || this.listUser.length > 0) {
+      <span> Mostrando 1 a {{ pageSize }} de {{ total }} entradas </span>
+
       <app-pagination
         [page]="pageIndex"
         [total]="total"
         (pageChange)="pageChanged($event)"
       ></app-pagination>
+      }
     </div>
   </div>
 </div>

@@ -1,1 +1,13 @@
-
+<nz-pagination
+  [nzPageIndex]="page"
+  [nzTotal]="total"
+  (nzPageIndexChange)="pageChange.emit($event)"
+  [nzItemRender]="renderItemTemplate"
+></nz-pagination>
+<ng-template #renderItemTemplate let-type let-page="page">
+  <ng-container [ngSwitch]="type">
+    <a *ngSwitchCase="'prev'" class="prev" nz-icon nzType="left"></a>
+    <a *ngSwitchCase="'page'">{{ page }}</a>
+    <a *ngSwitchCase="'next'" class="next" nz-icon nzType="right"></a>
+  </ng-container>
+</ng-template>

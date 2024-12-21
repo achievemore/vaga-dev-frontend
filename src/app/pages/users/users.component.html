@@ -17,7 +17,7 @@
     </div>
     <nz-table
       [nzLoading]="isLoading$ | async"
-      [nzShowPagination]="true"
+      [nzShowPagination]="false"
       [nzTotal]="total"
       [nzPageSize]="pageSize"
       [nzPageIndex]="pageIndex"
@@ -26,7 +26,7 @@
       #sortTable
       [nzData]="listUser"
       nzTableLayout="fixed"
-      (nzQueryParams)="onQueryParamsChange($event)"
+      
     >
       <thead>
         <tr>
@@ -54,5 +54,15 @@
         }
       </tbody>
     </nz-table>
+    <div class="footer">
+      <span>
+        Mostrando 1 a {{pageSize}} de {{total}} entradas
+      </span>
+      <app-pagination
+        [page]="pageIndex"
+        [total]="total"
+        (pageChange)="pageChanged($event)"
+      ></app-pagination>
+    </div>
   </div>
 </div>

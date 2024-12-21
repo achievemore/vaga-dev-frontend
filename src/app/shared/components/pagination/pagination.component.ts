@@ -1,20 +1,22 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 @Component({
   selector: 'app-pagination',
   standalone: true,
-  imports: [],
+  imports: [ CommonModule,NzPaginationModule,NzIconModule],
   templateUrl: './pagination.component.html',
   styleUrl: './pagination.component.scss'
 })
 export class PaginationComponent implements OnInit {
-  @Input() currentPage!: number;
-  @Input() itemsPerPage!: number;
-  @Input() totalItems!: number;
-  @Output() pageChanged: EventEmitter<number> = new EventEmitter();
+  @Input()page!:number
+  @Input() total!:number
+  @Output() pageChange: EventEmitter<number> = new EventEmitter<number>();
+  @Output() pageBoundsCorrection!: EventEmitter<number>;
 
   ngOnInit(): void {
-      console.log(this.currentPage)
+
   }
 
 }

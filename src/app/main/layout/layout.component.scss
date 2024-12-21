@@ -3,7 +3,7 @@
 }
 
 .background-blue {
-  background-color: var(--bg-blue);
+  background-color: var(--primary-color);
   width: 100vw;
   position: fixed;
   z-index: 0;
@@ -38,4 +38,8 @@ nz-content {
   z-index: 2;
   border-radius: 15px;
   height: 65vh;
+}
+
+::ng-deep .ant-layout-header {
+  background-color: transparent !important;
 }

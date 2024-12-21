@@ -1,24 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'assets/scss/menu.scss';
+
+
 * {
   font-family: "Open Sans";
 }
 
 :root {
-  --bg-blue: #5e72e4;
+  --primary-color: #5e72e4;
   --text-gray: #8392ab;
   --text-blue: #172b4d;
 }
-
-.ant-layout-header {
-  background-color: transparent !important;
-}
-
-.ant-menu-inline {
-  border-right: none !important;
-}
-
-.ant-menu-sub.ant-menu-inline {
-  background: none !important;
-}
-
 

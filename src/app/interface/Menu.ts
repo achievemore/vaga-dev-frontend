@@ -5,6 +5,7 @@ interface SubMenu {
 
 export interface IMenu {
   name:string;
-  icon:string;
+  svgPath:string;
+  classColor?:string;
   subMenu:Array<SubMenu>
 }

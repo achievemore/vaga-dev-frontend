@@ -6,7 +6,11 @@
   </div>
   <ul nz-menu nzMode="inline">
     @for (item of menus; track $index) {
-    <li nz-submenu nzTitle="{{ item.name }}" nzIcon="{{ item.icon }}">
+    <li nz-submenu [nzTitle]="titleTpl">
+      <ng-template #titleTpl
+        ><span class="icon"><img [src]="item.svgPath" /></span
+        ><span>{{ item.name }}</span></ng-template
+      >
       <ul>
         @for (item of item.subMenu; track $index) {
         <li nz-menu-item [routerLink]="item.link">{{ item.name }}</li>

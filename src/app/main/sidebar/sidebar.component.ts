@@ -16,12 +16,12 @@ export class SidebarComponent {
   menus: Array<IMenu> = [
     {
       name: "Dashboard",
-      icon: "appstore",
-      subMenu: [{ name: "Gerenciar", link: "dashboard" }],
+      svgPath: "assets/images/store.svg",
+      subMenu: [{ name: "Dashboard", link: "dashboard" }],
     },
     {
       name: "Usuários",
-      icon: "copy",
+      svgPath: "assets/images/ungroup.svg",
       subMenu: [
         { name: "Listagem", link: "users" },
         { name: "Cadastrar", link: "user" },

@@ -4,8 +4,9 @@
       <h1>Vaga Front-end AchieveMore</h1>
     </a>
   </div>
-  <ul nz-menu nzMode="inline">
+  <ul nz-menu nzMode="inline" class="menu">
     @for (item of menus; track $index) {
+    <small class="group-name">{{ item.groupName }}</small>
     <li nz-submenu [nzTitle]="titleTpl">
       <ng-template #titleTpl
         ><span class="icon"><img [src]="item.svgPath" /></span

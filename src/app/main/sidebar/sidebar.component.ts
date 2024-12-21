@@ -22,6 +22,7 @@ export class SidebarComponent {
     {
       name: "Usuários",
       svgPath: "assets/images/ungroup.svg",
+      groupName:'Gerenciar',
       subMenu: [
         { name: "Listagem", link: "users" },
         { name: "Cadastrar", link: "user" },

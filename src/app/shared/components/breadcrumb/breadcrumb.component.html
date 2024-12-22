@@ -1,0 +1,10 @@
+<div class="breadcrumb-wrapper">
+  <nz-breadcrumb nzSeparator="/">
+    <nz-breadcrumb-item>Gerenciar</nz-breadcrumb-item>
+    @for (breadcrumb of (breadcrumbs$ | async); track $index) {
+      <nz-breadcrumb-item><a>{{breadcrumb.label}}</a></nz-breadcrumb-item>
+    }
+  </nz-breadcrumb>
+</div>
+
+

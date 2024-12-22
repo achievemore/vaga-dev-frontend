@@ -17,6 +17,7 @@ export const routes: Routes = [
       },
       {
         path: "dashboard",
+        data: { breadcrumb: 'Dashboard' },
         loadChildren: () =>
           import("./pages/dashboard/dashboard.routes").then(
             (m) => m.DASHBOARD_ROUTES
@@ -24,11 +25,13 @@ export const routes: Routes = [
       },
       {
         path: "user",
+        data: { breadcrumb: 'Usuário' },
         loadChildren: () =>
           import("./pages/user/user.routes").then((m) => m.USER_ROUTES),
       },
       {
         path: "users",
+        data: { breadcrumb: 'Usuários' },
         loadChildren: () =>
           import("./pages/users/users.routes").then((m) => m.USERS_ROUTES),
       },

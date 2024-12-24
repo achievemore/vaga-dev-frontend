@@ -1,0 +1,18 @@
+<div class="d-flex dashboard-container">
+  <!-- Sidebar fixo à esquerda -->
+  <app-sidebar></app-sidebar>
+
+  <!-- Área principal -->
+  <div class="flex-grow-1">
+    <app-header></app-header>
+    
+    <div class="content-wrapper d-flex">
+      <div class="page-content flex-grow-1">
+        <!-- Aqui você pode colocar <router-outlet> ou conteúdo do dashboard -->
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,54 @@
+.navbar-dashboard{
+    background: none;
+}
+
+.breadcrumb {
+    justify-content: space-between;
+}
+
+.breadcrumb-label{
+    display: flex;
+    flex-direction: column;
+}
+
+.breadcrumb-icon{
+    align-self: center;
+    margin-left: 10;
+}
+
+.search{
+    align-self: center;
+    margin-left: auto;
+    width: 12.5vw;
+    height: 3.8vh;
+}
+
+.icon-menu{
+    width: 1.287rem;
+    height: 0.625rem;
+}
+
+.breadcrumb-title-color{
+    color: #FFFFFF80;
+}
+
+.breadcrumb-subtitle{
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+.input-group-div{
+    
+}
+
+.fm-input-icon{
+    border-left: 0;
+}
+
+.input-group-text, .form-control{
+    background: #FFFFFF;
+}
+
+.user-menu{
+    align-self: center;
+}

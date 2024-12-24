@@ -1,0 +1,131 @@
+.login-page{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.header-background-image{
+    width: auto;
+    min-height: 424px;
+    border-radius: 15px;
+    margin: 0.5%;
+    background: linear-gradient(
+    124deg,
+    rgba(33, 34, 41, 0.6) -1.8%,
+    rgba(33, 37, 41, 0.6) 105.23%
+    ),
+    50% / 100% no-repeat url("../../../assets/background-login-image.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.login-header {
+    display: flex;
+    padding: 0.83vh 0.083vw;
+    gap: 1rem;
+    border-radius: 12px;
+    margin: 0;
+    
+}
+.header-navbar {
+    padding: 1rem;
+    justify-content: center;
+    gap: 1rem;
+}
+.header-navbar ul {
+    margin-top: 0;
+}
+.header-logo {
+    margin-right: 6vw;
+    font-weight: 700;
+}
+
+.header-menu {
+    margin-left: 6vw;
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.login-wellcome-title{
+    margin: 1vh 0 5vh 0;
+
+}
+
+.wellcome-title{
+    text-align: center;
+}
+
+.wellcome-description{
+    text-align: center;
+}
+
+.form-label{
+    line-height: 1.192rem;
+    color: #172B4D;
+}
+
+.form-check-label{
+    text-align: left;
+    color:#172B4D
+    
+}
+
+.form-control{
+    border: 1px solid #E2E8F0;
+    width: 100%;
+    height: 4.5vh;
+    padding: 0 1vw 0 1vw;
+    border-radius: 8px;
+}
+.card{
+    width: 23vw;
+    height: 44vh;
+    border-radius: 15px;
+}
+.login-card{
+    padding: 10%;
+    text-align: left;
+}
+
+.login-form-container {
+    position: absolute; 
+    top: 100;
+    left: 0;
+    width: 100%;
+    z-index: 10; 
+}
+
+.login-form-container .card {
+    border-radius: 8px; 
+}
+
+
+.btn-login{
+    font-weight: 700;
+    background: #5E72E4;
+    margin-top: 1vh;
+    width: 100%;
+    height: 4vh;
+    padding: 0.55vh 0.83vw 0.55vh 0.83vw;
+    border-radius: 8px;
+}
+
+.footer{
+    margin-top: auto;
+    height: auto;
+    margin-bottom: 1.5vh;
+}
+
+.footer-links{
+    justify-self: center;
+    margin-bottom: 4vh;
+}
+
+.footer-label-links{
+    text-align: left;
+    margin: 0 1vw;
+    margin-bottom: 1rh;
+    min-width: 200px;
+    padding: 1rem;
+}

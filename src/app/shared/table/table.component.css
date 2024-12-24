@@ -1,0 +1,38 @@
+.form-select {
+    width: 4.438rem;
+}
+th {
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 15px;
+    color: #8392AB;
+}
+
+.text-xs{
+    margin-left: 0.2rem;
+}
+
+
+.page-link{
+    border-radius: 22.5rem !important;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    background: none;
+    border: 1px solid #E9ECEF;
+}
+.page-item:first-child, .page-item:last-child{
+    border-radius: 22.5rem;
+    border: 1px solid #8392AB
+}
+
+.pagination-icon{
+    height: 0.6rem;
+    width: 0.4rem;
+    vertical-align: initial;
+}
+.active > .page-link, .page-link.active {
+    color: #ffffff !important;
+    background: linear-gradient(124deg, #5E72E4 -1.8%, #825EE4 105.23%);
+    border-color: #5E72E4;
+}

@@ -1,38 +1,25 @@
 .dashboard-container {
-    /* Garante que ocupe a tela inteira */
     min-height: 100vh;
+    padding: 2rem;
+    background: linear-gradient(to bottom, #6c63ff 20%, #F5F7F8 20% 100%);
     
-    /* Exemplo de gradiente vertical */
-    background: linear-gradient(to bottom, #6c63ff 30%, #ffffff 30% 100%);
+  }
     
-    /* Ou se preferir algo sólido na parte de cima e branco no resto,
-       pode usar background-color normal e outra div com fundo colorido. */
-  }
-  
-  .header-wrapper {
-    /* Se quiser que o header fique sobre a cor roxa, pode usar um pouco de padding, etc. */
-    padding: 1rem;
-  }
-  
   .content-wrapper {
-    /* Exemplo: se o topo é roxo, e abaixo é branco */
-    background-color: #f5f7fa; /* ou #fff, escolha o tom que combinar */
-    border-top-left-radius: 2rem; /* se quiser cantos arredondados na transição */
+    background-color: #fff;
+    border-radius: 2rem;
     padding: 1rem;
+    margin-top: 3.5rem;
   }
   
-  /* Sidebar “flutuando” */
   app-sidebar {
     background-color: #fff;
     margin-right: 1rem;
     min-width: 250px;
   
-    /* Se quiser bordas arredondadas */
     border-radius: 1rem;
   
-    /* Se quiser sombra */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   
-    /* Caso queira um espaçamento lateral para não ficar encostado */
     margin-left: 1rem;
   }

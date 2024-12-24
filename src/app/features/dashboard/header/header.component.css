@@ -4,6 +4,9 @@
 
 .breadcrumb {
     justify-content: space-between;
+    max-width: 10vw;
+    margin-bottom: 0;
+    padding: 0 1rem;
 }
 
 .breadcrumb-label{
@@ -19,7 +22,13 @@
 .search{
     align-self: center;
     margin-left: auto;
-    width: 12.5vw;
+    max-width: 12.5vw;
+    height: 3.8vh;
+    padding-right: 0;
+    text-align: end;
+}
+
+.input-group{
     height: 3.8vh;
 }
 
@@ -37,12 +46,11 @@
     font-weight: 700;
 }
 
-.input-group-div{
-    
-}
-
 .fm-input-icon{
     border-left: 0;
+}
+.input-group-text {
+    border-right: 0;
 }
 
 .input-group-text, .form-control{
@@ -51,4 +59,11 @@
 
 .user-menu{
     align-self: center;
+    max-width: 11.9vw;
+    padding-right: 0;
+    text-align: end;
+}
+
+.user-padding {
+    padding: 0 0.5rem;
 }

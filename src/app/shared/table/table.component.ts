@@ -33,10 +33,6 @@ export class TableComponent implements OnInit, OnChanges {
 
   startItemIndex = 0;  
   endItemIndex = 0;
-
-
-  title: string = "Listagem de usuários"
-
   
   constructor() { }
   

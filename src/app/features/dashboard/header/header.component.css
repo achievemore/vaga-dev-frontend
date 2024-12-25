@@ -67,3 +67,15 @@
 .user-padding {
     padding: 0 0.5rem;
 }
+
+
+@media only screen and (max-width: 1919px){
+    .user-menu{
+        max-width: 14.3vw;
+    }
+}
+@media only screen and (max-width: 1600px){
+    .user-menu{
+        max-width: 16.6vw;
+    }
+}

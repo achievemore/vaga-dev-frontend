@@ -1,6 +1,11 @@
-<h2>Lista de Usuários</h2>
-    <app-table
-      [data]="users()"
-      [columns]="columns"
-      [filters]="filters"
-    ></app-table>
+<div>
+  <h5 class="title text-dark">Listagem de Usuários</h5>
+  <span class="text-sm text-dark">Visualização dos usuários cadastrados.</span>
+  <a href="/dashboard" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom"></a>
+  <app-table
+  [data]="users()"
+  [columns]="columns"
+  [filters]="filters"
+  ></app-table>
+  
+</div>

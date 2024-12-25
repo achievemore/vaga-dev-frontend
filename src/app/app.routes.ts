@@ -24,6 +24,10 @@ export const routes: Routes = [
         component: UserListComponent
       },
       {
+        path: 'item1',
+        component: UserListComponent
+      },
+      {
         path: '',
         redirectTo: 'users', 
         pathMatch: 'full'

@@ -17,7 +17,6 @@ export class SidebarComponent  {
   }
 
   isActive(route: string): boolean {
-    // Retorna true se a rota atual começa com o path que você quer
     return this.router.url.startsWith(route);
   }
 

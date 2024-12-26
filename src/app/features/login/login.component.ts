@@ -14,6 +14,8 @@ import { CommonModule } from '@angular/common';
 export class LoginComponent implements OnInit{
 
   loginForm: FormGroup;
+  loginError: boolean = false;
+  errorMessage: string | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -33,7 +35,13 @@ export class LoginComponent implements OnInit{
   }
 
   onSubmit() {
+    this.loginError = false;
+    this.errorMessage = null;
+
     if (this.loginForm.invalid) {
+      this.loginError = true;
+      this.errorMessage = 'Por favor, preencha o formulário corretamente.';
+      this.hideModal();
       return;
     }
 
@@ -44,9 +52,17 @@ export class LoginComponent implements OnInit{
         this.router.navigate(['/dashboard']);
       },
       error: err => {
-        console.error('Erro ao fazer login: ', err);
+        this.loginError = true;
+        this.errorMessage = 'Falha no login. Verifique suas credenciais e tente novamente.';
       }
     });
+  }
+
+  hideModal() {
+    setTimeout(() => {
+      this.loginError = false;
+      this.errorMessage = '';
+    }, 2000);
   }
 
 }

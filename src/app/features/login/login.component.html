@@ -29,6 +29,18 @@
         <div class="login-card">
           <h3 class="text-dark text-lg mb-3">Área restrita</h3>
           <p class="login-description">Digite seu e-mail e senha para entrar</p>
+
+          <div class="modal-overlay" *ngIf="loginError">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Erro</h5>
+                <button type="button" class="close-button" (click)="loginError = false">&times;</button>
+              </div>
+              <div class="modal-body">
+                {{ errorMessage }}
+              </div>
+            </div>
+          </div>
           
           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
@@ -39,7 +51,7 @@
                 placeholder="Digite seu e-mail"
                 formControlName="email"
               />
-              <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger">
+              <div *ngIf="loginForm.get('email')?.invalid && errorMessage !== null" class="text-danger">
                 E-mail inválido
               </div>
             </div>
@@ -52,7 +64,7 @@
                 placeholder="Digite sua senha"
                 formControlName="password"
               />
-              <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger">
+              <div *ngIf="loginForm.get('password')?.invalid && errorMessage !== null" class="text-danger">
                 Senha é obrigatória
               </div>
             </div>
@@ -63,7 +75,6 @@
                 type="checkbox"
                 role="switch"
                 id="forgotPassword"
-                formControlName="forgotPassword"
               />
               <label class="form-check-label text-base" for="forgotPassword">Esqueceu a senha</label>
             </div>

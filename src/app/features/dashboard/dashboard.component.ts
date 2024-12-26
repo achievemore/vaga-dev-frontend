@@ -10,11 +10,8 @@ import { RouterOutlet } from '@angular/router';
   imports:[HeaderComponent, SidebarComponent, RouterOutlet],
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

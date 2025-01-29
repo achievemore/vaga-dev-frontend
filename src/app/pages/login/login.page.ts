@@ -59,7 +59,7 @@ export class LoginPage {
 
     protected loginForm = this.fb.group<TransformIntoForms<LoginRequest>>({
         email: this.fb.control('', { nonNullable: true, validators: [Validators.required, Validators.email] }),
-        senha: this.fb.control('', { nonNullable: true, validators: [Validators.required,] }),
+        password: this.fb.control('', { nonNullable: true, validators: [Validators.required,] }),
     });
 
     protected loading = false;

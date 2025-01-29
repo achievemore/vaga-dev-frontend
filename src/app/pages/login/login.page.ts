@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import { Component, inject } from '@angular/core';
+import { MenuItem, MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { PasswordModule } from 'primeng/password';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { LoginService } from './services/login.service';
+import { LoginRequest } from './models/login.request';
+import { TransformIntoForms } from '../../core/utils/transform-into-forms';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
     selector: 'app-login',
@@ -14,10 +19,16 @@ import { PasswordModule } from 'primeng/password';
         MenubarModule,
         InputTextModule,
         InputSwitchModule,
-        PasswordModule
+        PasswordModule,
+        ReactiveFormsModule,
+        ToastModule
     ],
     templateUrl: './login.page.html',
-    styleUrl: './login.page.scss'
+    styleUrl: './login.page.scss',
+    providers: [
+        MessageService,
+        LoginService
+    ]
 })
 export class LoginPage {
     items: MenuItem[] | undefined = [
@@ -42,6 +53,33 @@ export class LoginPage {
         }
     ];
 
+    private fb = inject(FormBuilder);
+    private loginService = inject(LoginService);
+    private messageService = inject(MessageService);
 
+    protected loginForm = this.fb.group<TransformIntoForms<LoginRequest>>({
+        email: this.fb.control('', { nonNullable: true, validators: [Validators.required, Validators.email] }),
+        senha: this.fb.control('', { nonNullable: true, validators: [Validators.required,] }),
+    });
+
+    protected loading = false;
+
+    login(): void {
+        this.loading = true;
+        this.loginService.login(this.loginForm.value as LoginRequest)
+            .subscribe({
+                next: (res) => {
+                    if (res.error) {
+                        this.messageService.add({
+                            severity: 'error',
+                            summary: 'Erro ao autenticar',
+                            detail: res.error
+                        });
+                        return;
+                    }
+                },
+                complete: () => this.loading = false
+            });
+    }
 
 }

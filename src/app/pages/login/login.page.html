@@ -1,4 +1,5 @@
 <div class="container-layout">
+    <p-toast />
     <div class="menu-superior">
         <div id="titulo">Vaga Front-end AchieveMore</div>
         <p-menubar [model]="items" />
@@ -11,20 +12,21 @@
         <div id="titulo">Área restrita</div>
         <div id="descricao">Digite seu e-mail e senha para entrar</div>
 
-        <form action="" id="formulario">
+        <form [formGroup]="loginForm" (ngSubmit)="login()" id="formulario">
             <div class="formulario-campo">
                 <label for="email">E-mail</label>
-                <input pInputText id="email" aria-describedby="email" />
+                <input pInputText id="email" aria-describedby="email" formControlName="email" />
             </div>
             <div class="formulario-campo">
                 <label for="senha">Senha</label>
-                <input pInputText type="password" id="senha" aria-describedby="senha" />
+                <input pInputText type="password" id="senha" aria-describedby="senha" autocomplete="on"
+                    formControlName="senha" />
             </div>
             <div class="esqueceu-senha">
                 <p-inputSwitch />
                 <div>Esqueceu sua senha</div>
             </div>
-            <p-button label="Submit" />
+            <p-button label="Submit" type="submit" [loading]="loading" [disabled]="loginForm.invalid" />
         </form>
     </div>
 

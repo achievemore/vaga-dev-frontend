@@ -1,0 +1,153 @@
+.background-login {
+    background-image: url('/assets/images/background-login.png');
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: top left;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+
+.background-img {
+    width: 100%;
+    height: auto;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+}
+
+.menu-superior {
+    color: #FFFFFF;
+    width: 55%;
+    margin: 0 auto;
+    padding-top: 10px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+
+    >#titulo {
+        font-weight: 700;
+    }
+}
+
+::ng-deep {
+    .p-menubar {
+        background: transparent;
+        color: #FFFFFF;
+        border: none;
+        padding: 0px;
+        height: 20px;
+
+        *,
+        ::after,
+        ::before,
+        *::after,
+        *::before {
+            background: transparent;
+            box-shadow: none;
+            color: #FFFFFF;
+            font-size: 14px;
+            fill: #FFFFFF;
+        }
+    }
+
+}
+
+.titulo {
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 50px;
+
+    :first-child {
+        font-size: 48px;
+        font-weight: 700;
+    }
+
+    :nth-child(2) {
+        font-size: 14px;
+        margin-top: 10px;
+    }
+}
+
+.card-login {
+    top: calc(50% - 240px);
+    left: calc(50% - 223px);
+    background-color: #FFFFFF;
+    width: 440px;
+    height: auto;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 0 auto;
+    margin-top: 30px;
+
+    >#titulo {
+        color: #172B4D;
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    >#descricao {
+        color: #8392AB;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    >#formulario {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        >.formulario-campo {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            label {
+                color: #172B4D;
+                font-size: 14px;
+            }
+
+        }
+
+        >.esqueceu-senha {
+            font-size: 14px;
+            color: #172B4D;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        ::ng-deep .p-button {
+            width: 100%;
+        }
+    }
+}
+
+.rodape {
+    width: 100%;
+    margin-top: 80px;
+    text-align: center;
+    color: #8392AB;
+    position: absolute;
+    bottom: 0;
+
+    .links {
+        font-size: 16px;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin-bottom: 30px;
+
+        >a {
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+
+    >.descricao {
+        font-size: 14px;
+    }
+}

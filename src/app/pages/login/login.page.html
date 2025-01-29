@@ -1,0 +1,42 @@
+<div class="container-layout">
+    <div class="menu-superior">
+        <div id="titulo">Vaga Front-end AchieveMore</div>
+        <p-menubar [model]="items" />
+    </div>
+    <div class="titulo">
+        <div>Bem vindo(a)</div>
+        <div>Use esse formulário para fazer login</div>
+    </div>
+    <div class="card-login">
+        <div id="titulo">Área restrita</div>
+        <div id="descricao">Digite seu e-mail e senha para entrar</div>
+
+        <form action="" id="formulario">
+            <div class="formulario-campo">
+                <label for="email">E-mail</label>
+                <input pInputText id="email" aria-describedby="email" />
+            </div>
+            <div class="formulario-campo">
+                <label for="senha">Senha</label>
+                <input pInputText type="password" id="senha" aria-describedby="senha" />
+            </div>
+            <div class="esqueceu-senha">
+                <p-inputSwitch />
+                <div>Esqueceu sua senha</div>
+            </div>
+            <p-button label="Submit" />
+        </form>
+    </div>
+
+    <div class="rodape">
+        <div class="links">
+            <a href="">Política de Privacidade</a>
+            <a href="">Política de Segurança</a>
+        </div>
+
+        <div class="descricao">
+            © 2024 AchieveMore - Todos os direitos reservados.
+        </div>
+    </div>
+    <img src="/assets/images/background-login.png" class="background-img" alt="background">
+</div>

@@ -14,11 +14,9 @@ export class AuthService {
         const token = this.localService.retrieve('token');
         const usuario = this.localService.retrieve('usuario');
         if (token && usuario) {
-            this.authState.setToken(token);
-            this.authState.setUsuario(usuario);
+            this.authState.autenticar({ token, usuario });
         } else {
-            this.authState.setToken('');
-            this.authState.setUsuario('');
+            this.authState.desautenticar();
         }
     }
 

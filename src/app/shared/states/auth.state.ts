@@ -14,17 +14,22 @@ export class AuthState {
         return this._token;
     }
 
-    setToken(value: string) {
-        this._token = value;
-        this.localService.store('token', this._token);
-    }
-
     get usuario(): string {
         return this._usuario;
     }
 
-    setUsuario(value: string) {
-        this._usuario = value;
+    autenticar(value: { token: string; usuario: string; }): void {
+        const { token, usuario } = value;
+        this._token = token;
+        this.localService.store('token', this._token);
+        this._usuario = usuario;
         this.localService.store('usuario', this._usuario);
+    }
+
+    desautenticar(): void {
+        this._token = '';
+        this.localService.clear('token');
+        this._usuario = '';
+        this.localService.clear('usuario');
     }
 }

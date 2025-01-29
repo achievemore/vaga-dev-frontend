@@ -10,6 +10,8 @@ import { LoginService } from './services/login.service';
 import { LoginRequest } from './models/login.request';
 import { TransformIntoForms } from '../../core/utils/transform-into-forms';
 import { ToastModule } from 'primeng/toast';
+import { AuthState } from '../../shared/states/auth.state';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-login',
@@ -56,6 +58,8 @@ export class LoginPage {
     private fb = inject(FormBuilder);
     private loginService = inject(LoginService);
     private messageService = inject(MessageService);
+    private authState = inject(AuthState);
+    private router = inject(Router);
 
     protected loginForm = this.fb.group<TransformIntoForms<LoginRequest>>({
         email: this.fb.control('', { nonNullable: true, validators: [Validators.required, Validators.email] }),
@@ -77,6 +81,11 @@ export class LoginPage {
                         });
                         return;
                     }
+                    this.authState.autenticar({
+                        token: res.token!,
+                        usuario: this.loginForm.controls.email.value
+                    });
+                    this.router.navigate(['/sistema']);
                 },
                 complete: () => this.loading = false
             });

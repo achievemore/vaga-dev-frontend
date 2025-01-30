@@ -8,10 +8,10 @@
 
 body {
     background-color: #F6F7F9;
-    min-height: calc(100vh - 16px);
+    margin: 0;
 }
 
 .container-layout {
     position: relative;
-    min-height: calc(100vh - 16px);
+    min-height: 100vh;
 }

@@ -1,7 +1,7 @@
 <div class="container-layout background-sistema">
     <app-menu />
     <!-- <router-outlet></router-outlet> -->
-    <div>
+    <div class="w-100">
         <div class="nav-menu">
             <div class="breadcrumb">
                 @for (item of breadCrumb; track $index; let first = $first;) {
@@ -11,6 +11,18 @@
                     }
                 </div>
                 }
+            </div>
+            <div class="ms-auto d-flex gap-4 align-items-center">
+                <p-iconField iconPosition="left">
+                    <p-inputIcon styleClass="pi pi-search" />
+                    <input type="text" pInputText placeholder="Search" />
+                </p-iconField>
+                <div id="usuario">
+                    <img src="/assets/images/icons/icon-user.png" alt="user">
+                    <span>{{authState.usuario}}</span>
+                </div>
+                <img src="/assets/images/icons/icon-manager.png" alt="manager">
+                <img src="/assets/images/icons/icon-notify.png" alt="notify">
             </div>
         </div>
     </div>

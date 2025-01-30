@@ -4,16 +4,24 @@ import { MenuComponent } from '../../shared/components/menu/menu.component';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { distinctUntilChanged, filter } from 'rxjs';
 import { NgClass } from '@angular/common';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
+import { InputTextModule } from 'primeng/inputtext';
+import { IBreadCrumb } from './models/breadcrumb.model';
+import { AuthState } from '../../shared/states/auth.state';
 
-
-interface IBreadCrumb {
-    label: string;
-    url: string;
-}
 @Component({
     selector: 'app-sistema-layout',
     standalone: true,
-    imports: [RouterOutlet, MenuComponent, BreadcrumbModule, NgClass],
+    imports: [
+        RouterOutlet,
+        MenuComponent,
+        BreadcrumbModule,
+        NgClass,
+        IconFieldModule,
+        InputIconModule,
+        InputTextModule
+    ],
     templateUrl: './sistema-layout.page.html',
     styleUrl: './sistema-layout.page.scss'
 })
@@ -25,6 +33,7 @@ export class SistemaLayoutPage {
         private route: Router,
         private cdr: ChangeDetectorRef,
         private activatedRoute: ActivatedRoute,
+        protected authState: AuthState
     ) {
         this.route.events.pipe(
             filter((event) => event instanceof NavigationEnd || event instanceof NavigationStart),

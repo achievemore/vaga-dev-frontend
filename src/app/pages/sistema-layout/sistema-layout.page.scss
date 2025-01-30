@@ -19,6 +19,7 @@
 .nav-menu {
     display: flex;
     gap: 20px;
+    width: 100%;
 
     >.breadcrumb {
         color: #FFFFFF;
@@ -37,4 +38,11 @@
         }
 
     }
+}
+
+#usuario {
+    font-size: 14px;
+    color: #FFFFFF;
+    display: flex;
+    gap: 5px;
 }

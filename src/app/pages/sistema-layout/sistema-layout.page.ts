@@ -9,6 +9,8 @@ import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
 import { IBreadCrumb } from './models/breadcrumb.model';
 import { AuthState } from '../../shared/states/auth.state';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptors } from '@angular/common/http';
+import { sistemaInterceptor } from '../../core/interceptors/sistema-interceptor';
 
 @Component({
     selector: 'app-sistema-layout',
@@ -23,7 +25,10 @@ import { AuthState } from '../../shared/states/auth.state';
         InputTextModule
     ],
     templateUrl: './sistema-layout.page.html',
-    styleUrl: './sistema-layout.page.scss'
+    styleUrl: './sistema-layout.page.scss',
+    providers: [
+
+    ]
 })
 export class SistemaLayoutPage {
 

@@ -73,7 +73,7 @@ export class LoginPage {
     login(): void {
         this.loading = true;
         this.loginService.login(this.loginForm.value as LoginRequest)
-            .pipe(takeUntilDestroyed())
+            .pipe(takeUntilDestroyed(this.onDestroy))
             .subscribe({
                 next: (res) => {
                     if (res.error) {

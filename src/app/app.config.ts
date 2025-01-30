@@ -2,10 +2,11 @@ import { APP_INITIALIZER, ApplicationConfig, importProvidersFrom } from '@angula
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { AuthService } from './shared/services/auth.service';
+import { sistemaInterceptor } from './core/interceptors/sistema-interceptor';
 
 function initializeApp(authService: AuthService) {
     return () => authService.verificacaoInicialAutenticacao();
@@ -22,5 +23,7 @@ export const appConfig: ApplicationConfig = {
             deps: [AuthService],
             multi: true,
         },
+        provideHttpClient(withInterceptors(
+            [sistemaInterceptor]))
     ],
 };

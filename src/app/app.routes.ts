@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { canActivateSistema } from './core/guards/sistema-guard';
 
 export const routes: Routes = [
     {
@@ -16,7 +17,8 @@ export const routes: Routes = [
                 path: 'listagem-usuarios',
                 title: 'Usuários',
                 loadComponent: () => import('./pages/sistema-layout/components/listagem-usuarios/listagem-usuarios.component')
-                    .then(mod => mod.ListagemUsuariosComponent)
+                    .then(mod => mod.ListagemUsuariosComponent),
+                canActivate: [canActivateSistema]
             }
         ]
     },

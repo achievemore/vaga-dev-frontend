@@ -32,4 +32,9 @@ export class AuthState {
         this._usuario = '';
         this.localService.clear('usuario');
     }
+
+    estaAutenticado(): boolean {
+        if (this._token && this.usuario) return true;
+        return false;
+    }
 }

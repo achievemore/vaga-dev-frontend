@@ -46,3 +46,19 @@
     display: flex;
     gap: 5px;
 }
+
+.rodape {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: #8392AB;
+    margin-top: auto;
+    padding-top: 80px;
+    padding-bottom: 10px;
+    font-size: 14px;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}

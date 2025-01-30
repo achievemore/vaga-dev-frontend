@@ -1,7 +1,7 @@
 <div class="container-layout background-sistema">
     <app-menu />
-    <!-- <router-outlet></router-outlet> -->
-    <div class="w-100">
+
+    <div class="w-100 d-flex flex-column gap-4">
         <div class="nav-menu">
             <div class="breadcrumb">
                 @for (item of breadCrumb; track $index; let first = $first;) {
@@ -24,6 +24,19 @@
                 <img src="/assets/images/icons/icon-manager.png" alt="manager">
                 <img src="/assets/images/icons/icon-notify.png" alt="notify">
             </div>
+        </div>
+        <router-outlet></router-outlet>
+
+        <div class="rodape">
+            <div class="descricao">
+                © 2024 AchieveMore - Todos os direitos reservados.
+            </div>
+
+            <div class="ml-auto d-flex gap-4">
+                <a href="">Política de Privacidade</a>
+                <a href="">Política de Segurança</a>
+            </div>
+
         </div>
     </div>
 </div>

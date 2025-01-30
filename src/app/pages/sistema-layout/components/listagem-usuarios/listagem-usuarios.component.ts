@@ -11,6 +11,8 @@ import { SistemaService } from '../../services/sistema.service';
 import { ListagemUsuariosDto } from '../../models/listagem-usuarios.dto';
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { ListagemUsuariosRequest } from '../../models/listagem-usuarios.request';
+import { PaginatorModule } from 'primeng/paginator';
+import { PaginationComponent } from '../../../../shared/components/pagination/pagination.component';
 
 @Component({
     selector: 'app-listagem-usuarios',
@@ -23,7 +25,9 @@ import { ListagemUsuariosRequest } from '../../models/listagem-usuarios.request'
         InputTextModule,
         TableModule,
         DatePipe,
-        CurrencyPipe
+        CurrencyPipe,
+        PaginatorModule,
+        PaginationComponent
     ],
     templateUrl: './listagem-usuarios.component.html',
     styleUrl: './listagem-usuarios.component.scss'
@@ -82,6 +86,13 @@ export class ListagemUsuariosComponent {
         this.request.next({
             page: 1,
             per_page: value
+        });
+    }
+
+    alterarPagina(value: number | undefined): void {
+        this.request.next({
+            page: value!,
+            per_page: this.porPagina
         });
     }
 

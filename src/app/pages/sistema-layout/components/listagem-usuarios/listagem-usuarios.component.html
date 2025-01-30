@@ -37,6 +37,12 @@
         </p-table>
         <div class="rodape-table">
             <div id="quantidade">{{qtdRodapeTable}}</div>
+
+            <!-- <p-paginator (onPageChange)="alterarPagina($event.first)" [first]="(request.value.page - 1)"
+                [rows]="porPagina" [totalRecords]="totalUsuarios()" /> -->
+
+            <app-pagination [paginaAtual]="request.value.page" [totalItems]="totalUsuarios()"
+                [itemsPorPagina]="request.value.per_page" (emitPagina)="alterarPagina($event)" />
         </div>
     </p-card>
 

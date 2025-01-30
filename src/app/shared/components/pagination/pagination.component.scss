@@ -1,0 +1,29 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+button {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #E9ECEF;
+    cursor: pointer;
+    background: none;
+    color: #8392AB;
+
+    &.arrow-pagination {
+        border: 1px solid #8392AB;
+    }
+}
+
+button.active {
+    background: #6c5ce7;
+    color: white;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

@@ -9,8 +9,7 @@ import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
 import { IBreadCrumb } from './models/breadcrumb.model';
 import { AuthState } from '../../shared/states/auth.state';
-import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptors } from '@angular/common/http';
-import { sistemaInterceptor } from '../../core/interceptors/sistema-interceptor';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 
 @Component({
     selector: 'app-sistema-layout',
@@ -22,7 +21,8 @@ import { sistemaInterceptor } from '../../core/interceptors/sistema-interceptor'
         NgClass,
         IconFieldModule,
         InputIconModule,
-        InputTextModule
+        InputTextModule,
+        OverlayPanelModule
     ],
     templateUrl: './sistema-layout.page.html',
     styleUrl: './sistema-layout.page.scss',
@@ -74,5 +74,10 @@ export class SistemaLayoutPage {
             return this.buildBreadCrumb(route.firstChild, nextUrl, newBreadcrumbs);
         }
         return newBreadcrumbs;
+    }
+
+    sair(): void {
+        this.authState.desautenticar();
+        this.route.navigate(['/login']);
     }
 }

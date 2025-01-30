@@ -45,6 +45,14 @@
     color: #FFFFFF;
     display: flex;
     gap: 5px;
+    cursor: pointer;
+
+}
+
+::ng-deep .p-overlaypanel-content {
+    #sair {
+        cursor: pointer;
+    }
 }
 
 .rodape {

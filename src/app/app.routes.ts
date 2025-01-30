@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { canActivateSistema } from './core/guards/sistema-guard';
+import { canAutenticacao } from './core/guards/autenticacao-guard';
 
 export const routes: Routes = [
     {
@@ -24,6 +25,7 @@ export const routes: Routes = [
     },
     {
         path: 'login',
-        loadComponent: () => import('./pages/login/login.page').then(mod => mod.LoginPage)
+        loadComponent: () => import('./pages/login/login.page').then(mod => mod.LoginPage),
+        canActivate: [canAutenticacao]
     }
 ];

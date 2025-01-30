@@ -17,9 +17,12 @@
                     <p-inputIcon styleClass="pi pi-search" />
                     <input type="text" pInputText placeholder="Search" />
                 </p-iconField>
-                <div id="usuario">
+                <div id="usuario" (click)="op.toggle($event)">
                     <img src="/assets/images/icons/icon-user.png" alt="user">
                     <span>{{authState.usuario}}</span>
+                    <p-overlayPanel #op>
+                        <span (click)="sair()" id="sair">Sair</span>
+                    </p-overlayPanel>
                 </div>
                 <img src="/assets/images/icons/icon-manager.png" alt="manager">
                 <img src="/assets/images/icons/icon-notify.png" alt="notify">

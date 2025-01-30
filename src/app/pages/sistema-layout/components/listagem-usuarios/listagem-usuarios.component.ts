@@ -6,7 +6,7 @@ import { DividerModule } from 'primeng/divider';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
-import { BehaviorSubject, combineLatest, map, switchMap } from 'rxjs';
+import { BehaviorSubject, map, switchMap } from 'rxjs';
 import { SistemaService } from '../../services/sistema.service';
 import { ListagemUsuariosDto } from '../../models/listagem-usuarios.dto';
 import { CurrencyPipe, DatePipe } from '@angular/common';
@@ -16,6 +16,7 @@ import { PaginationComponent } from '../../../../shared/components/pagination/pa
 import { SortComponent } from '../../../../shared/components/sort/sort.component';
 import { SortModel } from '../../../../shared/components/sort/models/sort.model';
 import _ from 'lodash';
+import { SkeletonModule } from 'primeng/skeleton';
 
 @Component({
     selector: 'app-listagem-usuarios',
@@ -31,7 +32,8 @@ import _ from 'lodash';
         CurrencyPipe,
         PaginatorModule,
         PaginationComponent,
-        SortComponent
+        SortComponent,
+        SkeletonModule
     ],
     templateUrl: './listagem-usuarios.component.html',
     styleUrl: './listagem-usuarios.component.scss',
@@ -59,12 +61,16 @@ export class ListagemUsuariosComponent {
     protected idadeSort = model<SortModel>({ nomeColuna: 'idade', ordem: '' });
     protected salarioSort = model<SortModel>({ nomeColuna: 'salario', ordem: '' });
 
+    protected loading = signal(true);
+
     protected lista: Signal<ListagemUsuariosDto[]> = toSignal(
         this.request.pipe(
             switchMap(({ per_page, page }) => {
+                this.loading.set(true);
                 return this.service
                     .obterUsuarios({ per_page, page }).pipe(
                         map((item) => {
+                            this.loading.set(false);
                             const lista: ListagemUsuariosDto[] =
                                 item.data.map((u) => {
                                     return {

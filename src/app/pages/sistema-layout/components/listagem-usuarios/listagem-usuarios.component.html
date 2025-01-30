@@ -25,6 +25,16 @@
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-u>
+                @if (loading()) {
+                <tr>
+                    <td><p-skeleton /></td>
+                    <td><p-skeleton /></td>
+                    <td><p-skeleton /></td>
+                    <td><p-skeleton /></td>
+                    <td><p-skeleton /></td>
+                    <td><p-skeleton /></td>
+                </tr>
+                } @else {
                 <tr style="height: 70px;">
                     <td>{{ u.nome }}</td>
                     <td>{{ u.cargo }}</td>
@@ -32,6 +42,17 @@
                     <td>{{ u.idade }}</td>
                     <td>{{ u.dataInicio | date: 'dd/MM/yyyy' }}</td>
                     <td>{{ u.salario | currency }}</td>
+                </tr>
+                }
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td><p-skeleton /></td>
+                    <td><p-skeleton /></td>
+                    <td><p-skeleton /></td>
+                    <td><p-skeleton /></td>
+                    <td><p-skeleton /></td>
+                    <td><p-skeleton /></td>
                 </tr>
             </ng-template>
         </p-table>

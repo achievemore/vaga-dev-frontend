@@ -21,7 +21,7 @@ export class SistemaService {
         const options =
             { params: httpParams };
         return this.httpClient.get<ListagemUsuariosApiDto>(
-            `${this.url}?per_page=${request.per_page}&page=${request.page}`)
+            `${this.url}?per_page=${request.per_page}&page=${request.page}&delay=3`)
             .pipe(
                 catchError((res: HttpErrorResponse) => {
                     console.error(res);

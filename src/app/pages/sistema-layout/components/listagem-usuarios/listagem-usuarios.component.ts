@@ -1,4 +1,4 @@
-import { Component, computed, inject, model, signal, Signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, model, signal, Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { CardModule } from 'primeng/card';
@@ -13,6 +13,9 @@ import { CurrencyPipe, DatePipe } from '@angular/common';
 import { ListagemUsuariosRequest } from '../../models/listagem-usuarios.request';
 import { PaginatorModule } from 'primeng/paginator';
 import { PaginationComponent } from '../../../../shared/components/pagination/pagination.component';
+import { SortComponent } from '../../../../shared/components/sort/sort.component';
+import { SortModel } from '../../../../shared/components/sort/models/sort.model';
+import _ from 'lodash';
 
 @Component({
     selector: 'app-listagem-usuarios',
@@ -27,10 +30,12 @@ import { PaginationComponent } from '../../../../shared/components/pagination/pa
         DatePipe,
         CurrencyPipe,
         PaginatorModule,
-        PaginationComponent
+        PaginationComponent,
+        SortComponent
     ],
     templateUrl: './listagem-usuarios.component.html',
-    styleUrl: './listagem-usuarios.component.scss'
+    styleUrl: './listagem-usuarios.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ListagemUsuariosComponent {
     protected qtdPorPaginaLista: number[] = [3, 6, 12];
@@ -49,6 +54,10 @@ export class ListagemUsuariosComponent {
         }
     );
     porPagina = this.request.value.per_page;
+
+    protected nomeSort = model<SortModel>({ nomeColuna: 'nome', ordem: 'ASC' });
+    protected idadeSort = model<SortModel>({ nomeColuna: 'idade', ordem: '' });
+    protected salarioSort = model<SortModel>({ nomeColuna: 'salario', ordem: '' });
 
     protected lista: Signal<ListagemUsuariosDto[]> = toSignal(
         this.request.pipe(
@@ -76,10 +85,37 @@ export class ListagemUsuariosComponent {
         ), { initialValue: [] });
 
     protected listaFiltrada = computed(() => {
-        if (!this.filtro()) return this.lista();
-        return this.lista().filter((u) =>
-            u.nome.toLocaleLowerCase().includes(this.filtro().toLocaleLowerCase())
-        );
+        let lista = this.lista();
+        if (this.filtro()) {
+            lista = this.lista().filter((u) =>
+                u.nome.toLocaleLowerCase().includes(this.filtro().toLocaleLowerCase())
+            );
+        }
+
+        let arrSort: { colunas: string[], ordem: (boolean | "asc" | "desc")[]; } = {
+            colunas: [],
+            ordem: []
+        };
+
+        if (this.nomeSort().ordem) {
+            arrSort.colunas.push(this.nomeSort().nomeColuna);
+            arrSort.ordem.push(this.nomeSort().ordem.toLocaleLowerCase() as (boolean | "asc" | "desc"));
+        }
+        if (this.idadeSort().ordem) {
+            arrSort.colunas.push(this.idadeSort().nomeColuna);
+            arrSort.ordem.push(this.idadeSort().ordem.toLocaleLowerCase() as (boolean | "asc" | "desc"));
+        }
+        if (this.salarioSort().ordem) {
+            arrSort.colunas.push(this.salarioSort().nomeColuna);
+            arrSort.ordem.push(this.salarioSort().ordem.toLocaleLowerCase() as (boolean | "asc" | "desc"));
+        }
+
+        if (arrSort.colunas.length) {
+            lista = _.orderBy(lista, arrSort.colunas, arrSort.ordem);
+        }
+
+        return lista;
+
     });
 
     alterarPorPagina(value: number): void {

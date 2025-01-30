@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, inject, Renderer2 } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Renderer2 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
@@ -8,7 +8,8 @@ import { RouterModule } from '@angular/router';
     standalone: true,
     imports: [NgClass, RouterModule],
     templateUrl: './menu.component.html',
-    styleUrl: './menu.component.scss'
+    styleUrl: './menu.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuComponent {
 

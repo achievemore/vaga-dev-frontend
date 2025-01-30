@@ -16,16 +16,16 @@
         <p-table [value]="listaFiltrada()" [tableStyle]="{ 'min-width': '50rem' }">
             <ng-template pTemplate="header">
                 <tr>
-                    <th>Nome</th>
+                    <th style="width: 35%;" [(app-sort)]="nomeSort">Nome</th>
                     <th>Cargo</th>
                     <th>Escritório</th>
-                    <th>Idade</th>
+                    <th [(app-sort)]="idadeSort">Idade</th>
                     <th>Data de início</th>
-                    <th>Salário</th>
+                    <th [(app-sort)]="salarioSort">Salário</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-u>
-                <tr>
+                <tr style="height: 70px;">
                     <td>{{ u.nome }}</td>
                     <td>{{ u.cargo }}</td>
                     <td>{{ u.escritorio }}</td>

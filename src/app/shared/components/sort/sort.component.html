@@ -1,0 +1,14 @@
+<div class="sort-box" (click)="nextOrder()">
+    <ng-content />
+    @switch (orderColumn().ordem) {
+    @case ('ASC') {
+    <span class="pi pi-angle-down"></span>
+    }
+    @case ('DESC') {
+    <span class="pi pi-angle-up"></span>
+    }
+    @case ('') {
+    <span class="pi pi-arrows-v" style=""></span>
+    }
+    }
+</div>

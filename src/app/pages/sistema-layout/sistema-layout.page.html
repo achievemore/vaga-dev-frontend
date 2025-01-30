@@ -1,5 +1,17 @@
 <div class="container-layout background-sistema">
     <app-menu />
     <!-- <router-outlet></router-outlet> -->
-
+    <div>
+        <div class="nav-menu">
+            <div class="breadcrumb">
+                @for (item of breadCrumb; track $index; let first = $first;) {
+                <div [ngClass]="{'first-breadcrumb': first}">{{item.label}}
+                    @if(first) {
+                    /
+                    }
+                </div>
+                }
+            </div>
+        </div>
+    </div>
 </div>

@@ -7,12 +7,14 @@ export const routes: Routes = [
     {
         path: 'sistema',
         loadComponent: () => import('./pages/sistema-layout/sistema-layout.page').then(mod => mod.SistemaLayoutPage),
+        title: 'Gerenciar',
         children: [
             {
                 path: '', pathMatch: 'full', redirectTo: 'listagem-usuarios'
             },
             {
                 path: 'listagem-usuarios',
+                title: 'Usuários',
                 loadComponent: () => import('./pages/sistema-layout/components/listagem-usuarios/listagem-usuarios.component')
                     .then(mod => mod.ListagemUsuariosComponent)
             }

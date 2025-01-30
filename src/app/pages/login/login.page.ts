@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
 import { MenuItem, MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
@@ -12,6 +12,7 @@ import { TransformIntoForms } from '../../core/utils/transform-into-forms';
 import { ToastModule } from 'primeng/toast';
 import { AuthState } from '../../shared/states/auth.state';
 import { Router } from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
     selector: 'app-login',
@@ -60,6 +61,7 @@ export class LoginPage {
     private messageService = inject(MessageService);
     private authState = inject(AuthState);
     private router = inject(Router);
+    private onDestroy = inject(DestroyRef);
 
     protected loginForm = this.fb.group<TransformIntoForms<LoginRequest>>({
         email: this.fb.control('', { nonNullable: true, validators: [Validators.required, Validators.email] }),
@@ -71,6 +73,7 @@ export class LoginPage {
     login(): void {
         this.loading = true;
         this.loginService.login(this.loginForm.value as LoginRequest)
+            .pipe(takeUntilDestroyed())
             .subscribe({
                 next: (res) => {
                     if (res.error) {

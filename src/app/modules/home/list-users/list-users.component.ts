@@ -1,26 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-interface User {
-  id: number;
-  email: string;
-  first_name: string;
-  last_name: string;
-  avatar: string;
-}
-
-interface Support {
-  url: string;
-  text: string;
-}
-
-interface UsersResponse {
-  page: number;
-  per_page: number;
-  total: number;
-  total_pages: number;
-  data: User[];
-  support: Support;
-}
+import { HomeService } from '../../../core/services/home.service';
+import { IResponseListUsers, User } from '../../shared/interfaces/home.interface';
 
 @Component({
   selector: 'app-list-users',
@@ -29,64 +9,51 @@ interface UsersResponse {
   styleUrl: './list-users.component.scss'
 })
 export class ListUsersComponent implements OnInit {
-  usersResponse: UsersResponse = {
-    page: 2,
-    per_page: 6,
-    total: 12,
-    total_pages: 2,
-    data: [
-      {
-        "id": 7,
-        "email": "michael.lawson@reqres.in",
-        "first_name": "Michael",
-        "last_name": "Lawson",
-        "avatar": "https://reqres.in/img/faces/7-image.jpg"
-      },
-      {
-        "id": 8,
-        "email": "lindsay.ferguson@reqres.in",
-        "first_name": "Lindsay",
-        "last_name": "Ferguson",
-        "avatar": "https://reqres.in/img/faces/8-image.jpg"
-      },
-      {
-        "id": 9,
-        "email": "tobias.funke@reqres.in",
-        "first_name": "Tobias",
-        "last_name": "Funke",
-        "avatar": "https://reqres.in/img/faces/9-image.jpg"
-      },
-      {
-        "id": 10,
-        "email": "byron.fields@reqres.in",
-        "first_name": "Byron",
-        "last_name": "Fields",
-        "avatar": "https://reqres.in/img/faces/10-image.jpg"
-      },
-      {
-        "id": 11,
-        "email": "george.edwards@reqres.in",
-        "first_name": "George",
-        "last_name": "Edwards",
-        "avatar": "https://reqres.in/img/faces/11-image.jpg"
-      },
-      {
-        "id": 12,
-        "email": "rachel.howell@reqres.in",
-        "first_name": "Rachel",
-        "last_name": "Howell",
-        "avatar": "https://reqres.in/img/faces/12-image.jpg"
-      }
-    ],
-    support: {
-      "url": "https://contentcaddy.io/?utm_source=reqres&utm_medium=json&utm_campaign=referral",
-      "text": "Tired of writing endless social media content? Let Content Caddy generate it for you."
-    }
-  };
+  pages: number[] = [];
+  page = 1;
+  searchTerm: string = '';
+  listUsers!: IResponseListUsers;
+  filteredUsers!: User[];
 
-  constructor() {}
+
+  constructor(private readonly homeService: HomeService) {}
 
   ngOnInit(): void {
-   
+    this.getUsers(this.page);
+  }
+
+  getUsers(page: number) {
+    this.homeService.listUsers(page).subscribe((response) => {
+      this.listUsers = response;
+      this.filteredUsers = response.data;
+      this.generatePages();
+    });
+  }
+
+  generatePages() {
+    this.pages = Array.from({ length: this.listUsers.total_pages }, (_, i) => i + 1);
+  }
+
+  changePage(page: number) {
+    if (page < 1 || page > this.listUsers.total_pages) return;
+    this.getUsers(page);
+  }
+
+  filterUsers() {
+    const search = this.searchTerm.toLowerCase();
+    this.filteredUsers = this.listUsers.data.filter(user =>
+      user.id.toString().includes(search) ||
+      user.first_name.toLowerCase().includes(search) ||
+      user.last_name.toLowerCase().includes(search) ||
+      user.email.toLowerCase().includes(search)
+    );
+  }
+
+  getStartIndex(): number {
+    return (this.listUsers.page - 1) * this.listUsers.per_page;
+  }
+
+  getEndIndex(): number {
+    return Math.min(this.getStartIndex() + this.listUsers.per_page, this.listUsers.total);
   }
 }

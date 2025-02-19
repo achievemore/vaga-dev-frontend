@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LoginService } from '../../services/login.service';
+import { LoginService } from '../../core/services/login.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -27,8 +27,8 @@ export class LoginComponent {
   }
 
   login() {
-    this.loginService.login(this.loginForm.value).subscribe(response => {
-      this.router.navigate(['/home']);
+    this.loginService.login(this.loginForm.value).subscribe(() => {
+      this.router.navigate(['/home/users/list']);
     });
   }
 }

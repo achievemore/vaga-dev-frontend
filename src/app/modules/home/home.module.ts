@@ -4,6 +4,7 @@ import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { ListUsersComponent } from './list-users/list-users.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -16,7 +17,7 @@ import { ListUsersComponent } from './list-users/list-users.component';
   imports: [
     CommonModule,
     HomeRoutingModule,
-
+    FormsModule
   ],
   exports: [
     HomeComponent,

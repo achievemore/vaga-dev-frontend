@@ -1,0 +1,68 @@
+<div class="table-container">
+  <div class="title">
+    <h5>Listagem de usuários</h5>
+    <p>Visualização dos usuários cadastrados.</p>
+  </div>
+
+  <hr />
+  <div class="filter-container">
+    <div class="range-container">
+      <select id="entries" (change)="onEntriesChange($event)">
+        <option [value]="5">5</option>
+        <option [value]="10" selected>10</option>
+        <option [value]="20">20</option>
+      </select>
+      <label for="entries">Entradas por página</label>
+    </div>
+
+    <input type="text" placeholder="Pesquise aqui..." class="search-input" [(ngModel)]="searchTerm"
+      (input)="filterTable()" />
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th (click)="sortTable('name')">
+          <div class="th-align">Nome <img src="./../../../../../../assets/images/order.svg" /></div>
+        </th>
+        <th (click)="sortTable('position')">
+          <div class="th-align">Cargo <img src="./../../../../../../assets/images/order.svg" /></div>
+        </th>
+        <th (click)="sortTable('office')">
+          <div class="th-align">Escritório <img src="./../../../../../../assets/images/order.svg" /></div>
+        </th>
+        <th (click)="sortTable('age')">
+          <div class="th-align">Idade <img src="./../../../../../../assets/images/order.svg" /></div>
+        </th>
+        <th (click)="sortTable('startDate')">
+          <div class="th-align">Data de Início <img src="./../../../../../../assets/images/order.svg" /></div>
+        </th>
+        <th (click)="sortTable('salary')">
+          <div class="th-align">Salário <img src="./../../../../../../assets/images/order.svg" /></div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of paginatedUsers">
+        <td>{{ user.name ? (user.name) : '-' }}</td>
+        <td>{{ user.position ? user.position : '-' }}</td>
+        <td>{{ user.office ? user.office : '-' }}</td>
+        <td>{{ user.age ? user.age : '-' }}</td>
+        <td>{{ user.startDate ? (user.startDate | date: 'dd/MM/yyyy') : '-' }}</td>
+        <td>{{ user.salary ? (user.salary | currency: 'BRL') : '-' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="container-pagination">
+    <p>Mostrando 1 a {{ entriesPerPage }} de {{ paginatedUsers.length }} entradas</p>
+    <div class="pagination">
+      <button class="arrow-button" (click)="previousPage()" [disabled]="currentPage === 1">&laquo;</button>
+      <button class="button-page" *ngFor="let page of pages" (click)="goToPage(page)"
+        [class.active]="page === currentPage">
+        {{ page }}
+      </button>
+      <button class="arrow-button" (click)="nextPage()" [disabled]="currentPage === totalPages">&raquo;</button>
+    </div>
+  </div>
+</div>

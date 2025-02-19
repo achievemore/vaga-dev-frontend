@@ -1,0 +1,127 @@
+.config-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 60px;
+
+    div {
+        display: flex;
+        align-items: center;
+    }
+
+    .manager-container {
+        div {
+            display: flex;
+            flex-direction: column;
+            margin-right: 64px;
+
+            p {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 19.6px;
+                text-align: left;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+                color: #FFFFFF80;
+            }
+
+            span {
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 22.4px;
+                text-align: left;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+                color: #FFFFFF;
+            }
+        }
+
+    }
+
+    .user-container {
+
+        .input-container {
+            position: relative;
+
+            .search-input {
+                font-size: 14px;
+                height: 42px;
+                width: 240px;
+                color: #8392AB;
+                border: 1px solid #E9ECEF;
+                border-radius: 8px;
+                margin-right: 24px;
+                padding: 10px 10px 10px 40px;
+            }
+
+            input::placeholder {
+                color: #8392AB;
+
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 21px;
+                text-align: left;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+
+            }
+
+            .input-icon {
+                position: absolute;
+                left: 10px;
+            }
+        }
+
+        div {
+            margin-right: 24px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 19.6px;
+            text-align: left;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+            color: #FFFFFF;
+
+            img {
+                margin-right: 8px;
+            }
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+
+            .logout {
+                cursor: pointer;
+            }
+
+            .tooltip-text {
+                visibility: hidden;
+                background-color: rgba(0, 0, 0, 0.7);
+                color: #fff;
+                text-align: center;
+                border-radius: 5px;
+                padding: 5px;
+                position: absolute;
+                z-index: 1;
+                top: 100%;
+                margin-left: -40px;
+                opacity: 0;
+                transition: opacity 0.3s;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 19.6px;
+            }
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        img {
+            margin-right: 24px;
+        }
+    }
+}

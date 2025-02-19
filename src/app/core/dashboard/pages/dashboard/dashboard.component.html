@@ -1,0 +1,28 @@
+<div class="container" *ngIf="listUsers.length > 0  ">
+
+    <div class="container-layout">
+
+      <app-side-menu (subMenuSelected)="checkSubMenu($event)" [selectedSubItem]="subMenuSelected"></app-side-menu>
+
+        <div class="list-container">
+            <app-top-menu [userLoggedIn]="userLoggedIn"></app-top-menu>
+            <app-table-users [users]="listUsers"  *ngIf="subMenuSelected === 'Listagem'; else showBlankDashBoard"></app-table-users>
+
+            <ng-template #showBlankDashBoard>
+                <app-blank-dashboard (goToListPage)="checkSubMenu($event)"></app-blank-dashboard>
+            </ng-template>
+           
+            <section class="footer">
+   
+                <p class="rights">© 2024 AchieveMore - Todos os direitos reservados.</p>
+                <div class="politics">
+                    <p>Política de Privacidade</p>
+                    <p>Política de Segurança</p>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+
+</div>

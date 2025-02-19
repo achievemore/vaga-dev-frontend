@@ -1,0 +1,43 @@
+<div class="filter-container row">
+  <div *ngFor="let f of filters" class="filter-item col">
+    
+    <input
+      *ngIf="f.type === 'string'"
+      type="text"
+      class="form-control"
+      [value]="f.value || null"
+      placeholder="{{f.label}}"
+      (input)="onFilterChange(f, $any($event.target).value)"
+    />
+
+    <select
+      class="form-select"
+      *ngIf="f.type === 'select'"
+      [value]="f.value || null"
+      (change)="onFilterChange(f, $any($event.target).value)"
+    >
+      <option value="">Selecione</option>
+      <option *ngFor="let opt of f.selectOptions" [value]="opt">
+        {{ opt }}
+      </option>
+    </select>
+
+    <input
+      *ngIf="f.type === 'number'"
+      class="form-control"
+      type="number"
+      [value]="f.value || null"
+      placeholder="{{f.label}}"
+      (input)="onFilterChange(f, $any($event.target).value)"
+    />
+
+    <input
+      *ngIf="f.type === 'general'"
+      type="text"
+      class="form-control"
+      [value]="f.value || null"
+      placeholder="Pesquise aqui..."
+      (input)="onFilterChange(f, $any($event.target).value)"
+    />
+  </div>
+</div>

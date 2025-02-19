@@ -4,9 +4,8 @@
     margin-top: -200px;
     background-color: #ffffff;
     border-radius: 15px;
-    width: 100%;
+    margin-right: 24px;
     max-width: 98.43rem;
-    height: 46.75rem;
     margin-top: -640px;
     margin-left: 330px;
     color: #172B4D;
@@ -32,6 +31,11 @@
 
 .input-group {
     width: 10.81rem;
+}
+
+.table-responsive {
+    height: 400px;
+    overflow-y: auto;
 }
 
  thead th, tbody td {
@@ -64,4 +68,16 @@ thead th {
     justify-content: center;
     margin: 0 5px;
     box-shadow: #172B4D;
+  }
+
+  .img-fluid.rounded-circle {
+    width: 50px;
+    height: 49px;
+  }
+
+  @media(min-width:1920px ) {
+    .table-responsive {
+        height: 585px;
+        overflow-y: hidden;
+    }
   }

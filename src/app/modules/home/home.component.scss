@@ -9,9 +9,8 @@
 .header {
     display: flex;
     align-items: center;
-    justify-content: end;
-    gap: 55.81rem;
-
+    justify-content: space-between;
+    margin-left: 359px;
 }
 
 .description {
@@ -65,11 +64,11 @@
     color: #8392AB;
     position: absolute;
     bottom: 20px;
+    width: 90%;
     right: 1rem;
     display: flex;
     align-items: center;
-    justify-content: end;
-    gap: 57.56rem;
+    justify-content: space-between;
 }
 
 .footer-header {

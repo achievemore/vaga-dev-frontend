@@ -11,6 +11,4 @@ import { HomeModule } from './modules/home/home.module';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  title = 'vaga-dev-frontend';
-}
+export class AppComponent {}

@@ -1,0 +1,32 @@
+.container-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   padding-top: 1rem;
+   color: #ffffff;
+   gap: 15.93rem;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 14px;
+
+}
+
+.content-list {
+    display: flex;
+    align-items: center;
+}
+
+.content-list ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 29px;
+    margin: 0;
+}
+
+.content-list ul li {
+    font-weight: 400;
+    font-size: 14px;
+}

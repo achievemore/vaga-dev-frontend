@@ -1,0 +1,86 @@
+<div class="container-list">
+  <div class="">
+    <div class="card-header">
+      <h3 class="title-list">Listagem de usuários</h3>
+      <small class="text-muted">Visualização dos usuários cadastrados.</small>
+    </div>
+    <hr>
+    <div class="">
+      <div class="input-search">
+        <div class="col-md-6 d-flex align-items-center">
+          <select id="entriesPerPage" class="form-select w-auto">
+            <option>{{listUsers.per_page}}</option>
+          </select>
+          <span class="ms-2">entradas por página</span>
+        </div>
+        <div class="">
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Pesquise aqui..."
+              [(ngModel)]="searchTerm"
+              (input)="filterUsers()"
+            />
+          </div>
+        </div>
+      </div>
+      <hr class="risk">
+      <div class="table-responsive">
+        <table class="table align-middle table-hover ">
+          <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Avatar</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Sobrenome</th>
+            <th scope="col">E-mail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of filteredUsers">
+            <td>{{ user.id }}</td>
+            <td>
+              <img
+                [src]="user.avatar"
+                [alt]="'Avatar ' + user.first_name"
+                style="max-width: 50px;"
+                class="img-fluid rounded-circle"
+              />
+            </td>
+            <td>{{ user.first_name }}</td>
+            <td>{{ user.last_name }}</td>
+            <td>{{ user.email }}</td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+      <div class="d-flex justify-content-between align-items-center">
+        <small class="text-muted">
+          Mostrando {{ getStartIndex() + 1 }} a {{ getEndIndex() }} de {{ listUsers.total }} entradas
+        </small>
+        <nav aria-label="Tabela de usuários paginação">
+          <ul class="pagination mb-0">
+            <li class="page-item" [class.disabled]="listUsers.page === 1">
+              <a class="page-link" (click)="changePage(listUsers.page - 1)" aria-label="Anterior">
+                <span>&laquo;</span>
+              </a>
+            </li>
+            <li
+              *ngFor="let page of pages"
+              class="page-item"
+              [class.active]="page === listUsers.page"
+            >
+              <a class="page-link" (click)="changePage(page)">{{ page }}</a>
+            </li>
+            <li class="page-item" [class.disabled]="listUsers.page === listUsers.total_pages">
+              <a class="page-link" (click)="changePage(listUsers.page + 1)" aria-label="Próximo">
+                <span>&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>

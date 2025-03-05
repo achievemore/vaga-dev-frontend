@@ -1,9 +1,22 @@
 ![AchieveMore](https://repository-images.githubusercontent.com/206639778/70226b80-d327-11e9-9bc8-b1024837da4c)
 
 ### Detalhes do teste:
-[Figma](https://www.figma.com/design/tY5s2KK19hcHNENJNyE1lx/Vaga-Front-end?node-id=0-1&m=dev&t=pz3OpILGhmk7lXLw-1)
 
-Desenvolva uma pequena aplicação seguindo o template do figma acima, crie um login utilizando uma [API](https://reqres.in/) pública para simular o login e um dashboard para listar os usuários.
+Desenvolva uma aplicação **simples** com os seguintes requisitos:
+
+- Listagem de produtos: Exibir produtos com imagem, título, preço e descrição curta
+- Busca: Permitir que o usuário busque produtos pelo titulo
+- Modo escuro: Implementar um Dark Mode
+
+Critérios de Avaliação:
+
+- Aplicação de boas práticas na estrutura do projeto.
+- Organização e clareza do código, seguindo boas práticas de legibilidade.
+- Separação de responsabilidades e reutilização de código (princípio DRY).
+- Implementação do Dark Mode com persistência de estado.
+- Uso adequado de componentes e gerenciamento de estado.
+- Responsividade e adaptação para desktop e mobile.
+
 Você irá realizar um **fork** neste repositório e após o termino do desenvolvimento, realizar um **pull request** para análise do time. Não deixe para fazer o commit apenas no final, nossa equipe irá avaliar seu código desde o seu primeiro commit.
 
 Pedimos que trabalhe sozinho e não divulgue o resultado na internet.

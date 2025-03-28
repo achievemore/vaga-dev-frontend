@@ -1,0 +1,50 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col breadcrumb ">
+      <div class="breadcrumb-label">
+        <span class="text-sm breadcrumb-title-color">
+          Gerenciar /
+        </span>
+        <span class="text-base breadcrumb-subtitle"> Usuários</span>
+      </div>
+      <div class="breadcrumb-icon">
+        <img src="../../../../assets/icons/menu.png" alt="menu" class="icon-menu" />
+      </div>
+    </div>
+    
+    <div class="col md-auto search">
+      <div class="input-group input-group-div">
+        <span class="input-group-text"><img src="../../../../assets/icons/search.png" alt="search" class="icons" /></span>
+        <input type="text" class="form-control fm-input-icon" placeholder="Digite aqui">
+      </div>
+    </div>
+    
+    <div class="col user-menu">
+        <span class="user-padding pointer text-sm text-white"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img src="../../../../assets/icons/user.png" alt="user" class="icons me-1" />
+          Rodrigo Perreira
+      </span>
+
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li>
+            <button class="dropdown-item" type="button" (click)="onLogout()">
+              Sair
+            </button>
+          </li>
+        </ul>
+      <span class="user-padding">
+        <img src="../../../../assets/icons/settings.png" alt="settings" class="icons" />
+      </span>
+      <span class="user-padding pr-0">
+        <img src="../../../../assets/icons/notifications.png" alt="notifications" class="icons" />
+      </span>
+    </div>
+    
+    
+    
+  </div>
+</div>

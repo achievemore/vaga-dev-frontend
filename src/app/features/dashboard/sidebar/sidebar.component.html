@@ -1,0 +1,91 @@
+<div class="sidebar">
+  <a href="/dashboard" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
+    <span class="sidebar-title text-sm text-dark">Vaga Front-end AchieveMore</span>
+  </a>
+  <ul class="list-unstyled ps-0">
+    <li class="mb-1 pointer">
+      <div class="sidebar-item row" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+        <div class="col-2">
+          <img src="../../../../assets/icons/house.png" alt="house" class="icons" />
+        </div>
+        <div class="col-8">
+          <span class="text-sm">
+            Dashboard
+          </span>
+        </div>
+        <div class="col-2">
+          <img src="../../../../assets/icons/dropdown-gray.png" alt="house" class="dropdown-icon" />
+        </div>
+      </div>
+      <div class="collapse" id="home-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li (click)="navigateTo('/item1')">
+            <div class="sidebar-subitem"> 
+              <span 
+              class="text-sm text-gray" 
+              [ngClass]="{
+                'text-blue': isActive('/item1'),
+                'text-gray': !isActive('/item1')
+              }"
+              >Item 1</span>
+            </div>
+          </li>
+          <li (click)="navigateTo('/item2')">
+            <div class="sidebar-subitem"> 
+              <span 
+              class="text-sm text-gray" 
+              [ngClass]="{
+                'text-blue': isActive('/item2'),
+                'text-gray': !isActive('/item2')
+              }"
+              >Item 2</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="mb-1">
+      <span class="text-xs text-light-gray">Gerenciar</span>
+    </li>
+    <li class="mb-1 pointer">
+      <div class="sidebar-item row" data-bs-toggle="collapse" data-bs-target="#users-collapse" aria-expanded="false">
+        <div class="col-2">
+          <img src="../../../../assets/icons/Share.png" alt="house" class="icons" />
+        </div>
+        <div class="col-8">
+          <span class="text-sm">
+            Usuários
+          </span>
+        </div>
+        <div class="col-2">
+          <img src="../../../../assets/icons/dropdown-gray.png" alt="house" class="dropdown-icon" />
+        </div>
+      </div>
+      <div class="collapse" id="users-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li (click)="navigateTo('/users')">
+            <div class="sidebar-subitem"> 
+              <span 
+              class="text-sm text-gray"
+              [ngClass]="{
+                'text-blue': isActive('/users'),
+                'text-gray': !isActive('/users')
+              }">Listagem</span>
+            </div>
+          </li>
+          <li (click)="navigateTo('/users/new')">
+            <div class="sidebar-subitem"> 
+              <span 
+              class="text-sm text-gray"
+              [ngClass]="{
+                'text-blue': isActive('/users/new'),
+                'text-gray': !isActive('/users/new')
+              }">Cadastrar</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </li>
+    
+  </ul>
+</div>

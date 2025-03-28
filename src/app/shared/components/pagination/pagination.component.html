@@ -1,0 +1,18 @@
+<!-- <div class="d-flex gap-3">
+    @for (item of viewPaginationSpreadLess; track $index) {
+    <span (click)="emitCurrentPage((+item + 1))">{{(+item + 1)}}</span>
+    }
+</div> -->
+
+<div class="pagination">
+    <button (click)="setPagina(paginaAtual() - 1)" [disabled]="paginaAtual() === 1"
+        class="arrow-pagination">&lt;</button>
+    @for (pagina of paginasVisiveis(); track $index) {
+    <button (click)="setPagina(pagina)" [class.active]="pagina === paginaAtual()">
+        {{ pagina }}
+    </button>
+
+    }
+    <button (click)="setPagina(paginaAtual() + 1)" [disabled]="paginaAtual() === totalPaginas()"
+        class="arrow-pagination">&gt;</button>
+</div>

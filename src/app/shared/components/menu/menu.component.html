@@ -1,0 +1,21 @@
+<div id="titulo">Vaga Front-end AchieveMore</div>
+<div class="lista-menu">
+    @for (item of listaMenu; track index; let index = $index) {
+    <div class="item-menu">
+        <img [src]="'/assets/images/icons/'+item.icon+'.png'" alt="house">
+        <span>{{item.title}}</span>
+        @if (item.submenu.length) {
+        <img class="arrow" src="/assets/images/icons/arrow-down.png" alt="arrow"
+            (click)="ativarDesativarSubMenu(index)">
+        <div class="lista-submenu" [id]="'box-submenu'+ index">
+            @for (subitem of item.submenu; track $index) {
+            <div [routerLink]="subitem?.route" routerLinkActive="active-link" class="item-submenu"
+                [ngClass]="{'gerenciar': !index}">
+                {{subitem.title}}</div>
+            }
+        </div>
+        }
+    </div>
+
+    }
+</div>

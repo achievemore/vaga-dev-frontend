@@ -1,0 +1,20 @@
+.snackbar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: white;
+    padding: 16px;
+    border-radius: 4px;
+    transition: opacity 0.3s ease;
+    opacity: 0.9;
+    z-index: 1000;
+    min-width: 200px;
+    text-align: center; 
+  }
+  .red{
+    background-color: red;
+  }
+
+  .green{
+    background-color: #4BB543;
+  }

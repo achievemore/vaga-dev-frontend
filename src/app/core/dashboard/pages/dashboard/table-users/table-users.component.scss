@@ -1,0 +1,207 @@
+.table-container {
+  width: 100%;
+  margin: auto;
+  background-color: #FFFFFF;
+  border-radius: 15px;
+
+
+  hr {
+    border: 0.8px solid #DEE2E6;
+    margin-bottom: 8px;
+  }
+
+  .title {
+    padding: 24px;
+
+    h5 {
+      margin-bottom: 5px;
+      font-family: Open Sans;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 27.4px;
+      letter-spacing: -0.8px;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+      color: #172B4D;
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+      color: #172B4D;
+    }
+  }
+
+
+
+
+  .filter-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-left: 24px;
+    padding-right: 24px;
+
+    .range-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      select {
+        height: 33px;
+        width: 55px;
+        border: 1px solid #E9EAED;
+        border-radius: 4px;
+        color: #8392AB;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        padding: 4px;
+
+      }
+
+      label {
+        margin-left: 4px;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 15px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+
+      }
+
+      color: #8392AB;
+    }
+  }
+
+
+  .search-input {
+    font-size: 14px;
+    height: 42px;
+    color: #8392AB;
+    border: 1px solid #E9ECEF;
+    border-radius: 8px;
+    width: 200px;
+    padding: 10px 10px 10px 20px;
+  }
+
+  input::placeholder {
+    color: #8392AB;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+  }
+
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #FFFFFF;
+    border-top: 0.8px solid #DEE2E6;
+
+    thead {
+      background-color: #FFFFFF;
+    }
+
+    th,
+    td {
+      padding: 17px 24px;
+      text-align: left;
+      border-bottom: 0.8px solid #DEE2E6;
+    }
+
+    .th-align {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 15px;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+      color: #8392AB;
+    }
+
+    td {
+
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+      color: #8392AB;
+    }
+
+
+    tbody tr:hover {
+      background-color: #f5f5f5;
+    }
+  }
+
+  .container-pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15.5px 24px 15.5px 24px;
+
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+      color: #8392AB;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+
+      button {
+        width: 34px;
+        height: 34px;
+        border-radius: 100%;
+        cursor: pointer;
+        background-color: #FFFFFF;
+      }
+
+      .button-page {
+        border: 1px solid #E9ECEF;
+        color: #8392AB;
+      }
+
+      .arrow-button {
+        border: 1px solid #8392AB;
+        color: #8392AB;
+      }
+
+      button:disabled {
+        color: #aaa;
+        cursor: not-allowed;
+        border: 1px solid #aaa;
+      }
+
+      .active {
+        background: linear-gradient(124deg, #5E72E4 -1.8%, #825EE4 105.23%);
+        color: #FFFFFF;
+      }
+    }
+
+  }
+}

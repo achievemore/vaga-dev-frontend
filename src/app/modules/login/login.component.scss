@@ -1,0 +1,112 @@
+.container {
+    font-family: 'Open sans', sans-serif;
+}
+
+.title {
+    font-size: 3rem;
+    color: #FFFFFF;
+    margin-top: 3.62rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #FFFFFF;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+}
+
+.content-img {
+    position: static;
+    margin: 10px 10px 0;
+    height: 26.5rem;
+    border-radius: 15px;
+    z-index: 10;
+    background-image: url(../../../assets/imgs/img-backgroud.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-container {
+    width: 100%;
+    position: relative;
+    border-radius: 15px;
+    padding: 48px;
+    background-color: #FFFFFF;
+    max-width: 27.8rem;
+    height: 30rem;
+    z-index: 100;
+    margin-top: -160px;
+}
+
+
+
+.title-form {
+    font-weight: 700;
+    font-size: 1.9rem;
+    color: #172B4D;
+}
+
+.subtitle-form {
+    font-size: 1rem;
+    color: #8392AB;
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    height: 50px;
+    border: solid 1px #E2E8F0;
+}
+
+.form-control::placeholder {
+    color: #A0AEC0;
+}
+
+.login-button {
+    width: 100%;
+    color: #FFFFFF;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    height: 2.5rem;
+    border-radius: 8px;
+    background-color: #5E72E4;
+}
+
+.login-button:disabled {
+    opacity: 0.5;
+}
+
+.footer-container {
+    color: #8392AB;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%); 
+    width: auto;
+}
+
+.footer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.footer-header a {
+    cursor: pointer;
+    color: #8392AB;
+}
+
+.error-message {
+    color: #FF0000;
+    font-size: 0.8rem;
+    padding-top: 0.2rem;
+}

@@ -1,0 +1,45 @@
+<div class="container-home">
+    <div class="fundo">
+        <div class="header">
+            <div class="description">
+                <div class="users">
+                    <span class="manager">Gerenciar / </span>
+                    <span class="user">Usuários</span>
+                </div>
+                <img src="../../assets/icons/solid.svg" alt="Solid">
+            </div>
+            <div class="search">
+                <input type="text" class="form-control" placeholder="Digite aqui..." />
+                <img src="../../assets/icons/profile.svg" alt="Profile" />
+                <span>Rodrigo Perreira</span>
+                <div class="settings">
+                    <a>
+                        <img src="../../assets/icons/settings.svg" alt="Settings">
+                    </a>
+                    <a>
+                        <img src="../../assets/icons/bell.svg" alt="Bells">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <app-side-bar></app-side-bar>
+    </div>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+    <footer class="footer-container">
+        <div>
+            © 2024 AchieveMore - Todos os direitos reservados.
+        </div>
+        <div class="footer-header">
+            <div>
+                <a>Política de Privacidade</a>
+            </div>
+            <div>
+                <a>Política de Segurança</a>
+            </div>
+        </div>
+    </footer>
+</div>
